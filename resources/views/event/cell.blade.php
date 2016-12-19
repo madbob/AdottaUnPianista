@@ -33,7 +33,7 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="location-{{ $slot->id }}">
                 <br/>
-                {!! BootForm::open(['model' => $slot, 'update' => 'SlotController@update', 'class' => 'async-form']) !!}
+                {!! BootForm::open(['model' => $slot, 'update' => 'SlotController@update', 'class' => 'async-form', 'left_column_class' => 'col-md-5', 'left_column_offset_class' => 'col-md-offset-5', 'right_column_class' => 'col-md-7']) !!}
                     <div class="col-md-12">
                         <div class="col-md-6">
                             <select multiple class="form-control" size="15" name="location">
