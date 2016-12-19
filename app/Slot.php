@@ -34,6 +34,11 @@ class Slot extends Model
         return $capacity - $attendees;
     }
 
+    public function getTimestampAttribute()
+    {
+        return strtotime($this->date);
+    }
+
     public function printableDate()
     {
         return ucwords(Date::parse($this->date)->format('l d F Y'));
@@ -41,8 +46,6 @@ class Slot extends Model
 
     public function printableHour()
     {
-        $t = strtotime($this->date);
-
-        return strftime('%H:%M', $t);
+        return strftime('%H:%M', $this->timestamp);
     }
 }

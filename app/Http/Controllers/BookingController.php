@@ -35,6 +35,9 @@ class BookingController extends Controller
         $booking = $user->bookings()->where('slot_id', $slot_id)->first();
         $slot = Slot::findOrFail($slot_id);
 
+        if ($slot->timestamp < (time() + (60 * 60 * 24)))
+            return response()->json(['status' => 'fail', 'error' => 'Le prenotazioni possono essere modificate fino a 24 ore prima del concerto', 'available' => $slot->available], 400);
+
         $delete = $request->input('delete-me', false);
 
         if ($delete) {

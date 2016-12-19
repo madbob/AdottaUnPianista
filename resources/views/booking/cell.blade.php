@@ -1,6 +1,7 @@
 <?php
 
 $booking = $user->bookings()->where('slot_id', $slot->id)->first();
+$modificable = $slot->timestamp > (time() + (60 * 60 * 24));
 
 ?>
 
@@ -28,14 +29,20 @@ $booking = $user->bookings()->where('slot_id', $slot->id)->first();
             </small>
         </div>
         <div class="panel-footer">
-            @if($slot->available != 0)
-                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#book-slot-{{ $slot->id }}" aria-expanded="false" aria-controls="prenota">Prenota</button>
+            @if($modificable)
+                @if($booking != null)
+                    <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#book-slot-{{ $slot->id }}" aria-expanded="false" aria-controls="prenota">Modifica Prenotazione</button>
+                @else
+                    @if($slot->available != 0)
+                        <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#book-slot-{{ $slot->id }}" aria-expanded="false" aria-controls="prenota">Prenota</button>
+                    @endif
+                @endif
             @endif
 
             <span class="still-available">{{ $slot->available }}</span> Posti Disponibili
             <input type="hidden" name="max-bookable" value="{{ min($slot->available, 5) }}">
 
-            @if($slot->available != 0)
+            @if($modificable)
                 <div class="collapse" id="book-slot-{{ $slot->id }}">
                     <form method="POST" action="{{ url('prenotazione') }}" class="async-form">
                         <input type="hidden" name="slot_id" value="{{ $slot->id }}">
