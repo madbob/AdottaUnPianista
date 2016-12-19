@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Mail;
 use App\Event;
 use App\Slot;
 use App\Booking;
@@ -78,6 +79,12 @@ class BookingController extends Controller
                     $a->booking_id = $booking->id;
                     $a->save();
                 }
+
+                Mail::send('emails.event_preconfirmed', ['slot' => $slot], function($message) use ($user) {
+                    $message->to($user->email);
+                    $message->subject(env('APP_NAME') . ': invito al concerto');
+                });
+
             } else {
                 $attendees = $booking->attendees;
 
