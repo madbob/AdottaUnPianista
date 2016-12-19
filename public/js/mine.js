@@ -129,7 +129,7 @@ $(document).ready(function() {
             if (rows.length <= 1)
                 container.find('.delete-many-rows').remove();
 
-            var available = parseInt(container.closest('.panel-footer').find('.still-available').text());
+            var available = parseInt(container.closest('.panel-footer').find('input:hidden[name=max-bookable]').val());
             if (available - rows.length > 0)
                 container.find('.add-many-rows').prop('disabled', false);
 
@@ -146,7 +146,7 @@ $(document).ready(function() {
             container.find('.add-many-rows').closest('tr').before(row);
             manyRowsAddDeleteButtons(container);
 
-            var available = parseInt($(this).closest('.panel-footer').find('.still-available').text());
+            var available = parseInt($(this).closest('.panel-footer').find('input:hidden[name=max-bookable]').val());
             if (available - rows.length - 1 <= 0)
                 $(this).prop('disabled', true);
 

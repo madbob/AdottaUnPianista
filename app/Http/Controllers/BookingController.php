@@ -31,85 +31,89 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $user = Auth::user();
-		$slot_id = $request->input('slot_id');
-		$booking = $user->bookings()->where('slot_id', $slot_id)->first();
-		$slot = Slot::findOrFail($slot_id);
+        $slot_id = $request->input('slot_id');
+        $booking = $user->bookings()->where('slot_id', $slot_id)->first();
+        $slot = Slot::findOrFail($slot_id);
 
-		$delete = $request->input('delete-me', false);
+        $delete = $request->input('delete-me', false);
 
-		if ($delete) {
-			if($booking != null) {
-				$booking->attendees()->delete();
-				$booking->delete();
-				$booking = null;
-			}
-		}
-		else {
-			$names = $request->input('name');
-			$surnames = $request->input('surname');
+        if ($delete) {
+            if ($booking != null) {
+                $booking->attendees()->delete();
+                $booking->delete();
+                $booking = null;
+            }
+        } else {
+            $names = $request->input('name');
+            $surnames = $request->input('surname');
 
-			if ($booking == null) {
-				if ($slot->available < count($names)) {
-					return response()->json(['status' => 'fail', 'error' => 'Non ci sono abbastanza posti ancora disponibili', 'available' => $slot->available], 400);
-				}
+            if (count($names) > 5) {
+                return response()->json(['status' => 'fail', 'error' => 'Sono stati prenotati più posti del consentito', 'available' => $slot->available], 400);
+            }
 
-				$booking = new Booking;
-				$booking->user_id = $user->id;
-				$booking->slot_id = $slot->id;
-				$booking->save();
+            if ($booking == null) {
+                if ($slot->available < count($names)) {
+                    return response()->json(['status' => 'fail', 'error' => 'Non ci sono abbastanza posti ancora disponibili', 'available' => $slot->available], 400);
+                }
 
-				$attendees = [];
-				for($i = 0; $i < count($names); $i++) {
+                $booking = new Booking();
+                $booking->user_id = $user->id;
+                $booking->slot_id = $slot->id;
+                $booking->save();
+
+                $attendees = [];
+                for ($i = 0; $i < count($names); ++$i) {
                     $n = trim($names[$i]);
                     $s = trim($surnames[$i]);
-                    if ($n == '' && $s == '')
+                    if ($n == '' && $s == '') {
                         continue;
+                    }
 
-					$a = new Attendee();
-					$a->name = $n;
-					$a->surname = $s;
-					$a->booking_id = $booking->id;
-					$a->save();
-				}
-			}
-			else {
-				$attendees = $booking->attendees;
+                    $a = new Attendee();
+                    $a->name = $n;
+                    $a->surname = $s;
+                    $a->booking_id = $booking->id;
+                    $a->save();
+                }
+            } else {
+                $attendees = $booking->attendees;
 
-				if ($slot->available + $attendees->count() < count($names)) {
-					return response()->json(['status' => 'fail', 'error' => 'Non ci sono abbastanza posti ancora disponibili', 'available' => $slot->available], 400);
-				}
+                if ($slot->available + $attendees->count() < count($names)) {
+                    return response()->json(['status' => 'fail', 'error' => 'Non ci sono abbastanza posti ancora disponibili', 'available' => $slot->available], 400);
+                }
 
-				$confirmed = [];
+                $confirmed = [];
 
-				for($i = 0; $i < count($names); $i++) {
-					$found = false;
+                for ($i = 0; $i < count($names); ++$i) {
+                    $found = false;
 
-					foreach($attendees as $a) {
-						if ($a->name == $names[$i] && $a->surname == $surnames[$i]) {
-							$found = true;
-							break;
-						}
-					}
+                    foreach ($attendees as $a) {
+                        if ($a->name == $names[$i] && $a->surname == $surnames[$i]) {
+                            $found = true;
+                            break;
+                        }
+                    }
 
-					if ($found == false) {
+                    if ($found == false) {
                         $n = trim($names[$i]);
                         $s = trim($surnames[$i]);
-                        if ($n == '' && $s == '')
+                        if ($n == '' && $s == '') {
                             continue;
+                        }
 
-						$a = new Attendee();
-						$a->name = $n;
-						$a->surname = $s;
-						$a->booking_id = $booking->id;
-						$a->save();
-					}
+                        $a = new Attendee();
+                        $a->name = $n;
+                        $a->surname = $s;
+                        $a->booking_id = $booking->id;
+                        $a->save();
+                    }
 
-					$confirmed[] = $a->id;
-				}
+                    $confirmed[] = $a->id;
+                }
 
-				$booking->attendees()->whereNotIn('id', $confirmed)->delete();
-			}
-		}
+                $booking->attendees()->whereNotIn('id', $confirmed)->delete();
+            }
+        }
 
         $slot = $slot->fresh();
         if ($slot->available <= 0) {
@@ -118,7 +122,7 @@ class BookingController extends Controller
             $slot = $slot->fresh();
         }
 
-		return view('booking.cell', ['slot' => $slot, 'user' => $user]);
+        return view('booking.cell', ['slot' => $slot, 'user' => $user]);
     }
 
     public function addAttendee(Request $request)
@@ -136,15 +140,15 @@ class BookingController extends Controller
         */
 
         $slot_id = $request->input('slot_id');
-		$booking = $user->bookings()->where('slot_id', $slot_id)->first();
-		$slot = Slot::findOrFail($slot_id);
+        $booking = $user->bookings()->where('slot_id', $slot_id)->first();
+        $slot = Slot::findOrFail($slot_id);
 
         if ($slot->available == 0) {
             return response()->json(['status' => 'fail', 'error' => 'Non ci sono abbastanza posti ancora disponibili', 'available' => $slot->available], 400);
         }
 
-        if($booking == null) {
-            $booking = new Booking;
+        if ($booking == null) {
+            $booking = new Booking();
             $booking->user_id = $user->id;
             $booking->slot_id = $slot->id;
             $booking->save();
@@ -176,8 +180,9 @@ class BookingController extends Controller
                 prenotazione, viene rimosso tutto
             */
             $booking = $a->booking;
-            if ($booking->attendees()->count() == 1)
+            if ($booking->attendees()->count() == 1) {
                 $booking->delete();
+            }
 
             $a->delete();
         }

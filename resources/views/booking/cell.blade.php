@@ -33,6 +33,7 @@ $booking = $user->bookings()->where('slot_id', $slot->id)->first();
             @endif
 
             <span class="still-available">{{ $slot->available }}</span> Posti Disponibili
+            <input type="hidden" name="max-bookable" value="{{ min($slot->available, 5) }}">
 
             @if($slot->available != 0)
                 <div class="collapse" id="book-slot-{{ $slot->id }}">
