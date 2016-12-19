@@ -3,12 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Date;
 
 class Slot extends Model
 {
     public function bookings()
     {
         return $this->hasMany('App\Booking');
+    }
+
+    public function event()
+    {
+        return $this->belongsTo('App\Event');
     }
 
     public function location()
@@ -26,6 +32,11 @@ class Slot extends Model
         }
 
         return $capacity - $attendees;
+    }
+
+    public function printableDate()
+    {
+        return ucwords(Date::parse($this->date)->format('l d F Y'));
     }
 
     public function printableHour()

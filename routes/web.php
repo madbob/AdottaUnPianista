@@ -6,9 +6,10 @@ Route::get('/', function () {
 
 Route::get('/home', 'CommonController@home');
 
+Route::get('/register/activate/{token}', 'Auth\RegisterController@activate');
 Route::post('/prenotazione/rimuovi-partecipante', 'BookingController@removeAttendee');
 Route::post('/prenotazione/aggiungi-partecipante', 'BookingController@addAttendee');
-Route::get('/register/activate/{token}', 'Auth\RegisterController@activate');
+Route::post('/slot/mail', 'SlotController@sendMail');
 
 Route::resource('/user', 'UserController');
 Route::resource('/evento', 'EventController');

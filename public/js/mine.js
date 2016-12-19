@@ -7,74 +7,80 @@ $(document).ready(function() {
     });
 
     $('body')
-		.on('submit', '.async-form', function(e) {
-	        e.preventDefault();
+        .on('submit', '.async-form', function(e) {
+            e.preventDefault();
 
-			var form = $(this);
-			form.find('button[type=submit]').prop('disabled', true);
-	        var datastring = form.serialize();
+            var form = $(this);
+            form.find('button[type=submit]').prop('disabled', true);
+            var datastring = form.serialize();
 
-	        $.ajax({
-	            type: $(this).attr('method'),
-	            url: $(this).attr('action'),
-	            data: datastring,
-	            dataType: "HTML",
+            $.ajax({
+                type: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: datastring,
+                dataType: "HTML",
 
-	            success: function(data) {
-					form.closest('.panel').replaceWith(data);
-	            },
-	            error: function(data) {
+                success: function(data) {
+                    form.closest('.panel').replaceWith(data);
+                },
+                error: function(data) {
                     var j = $.parseJSON(data.responseText);
-	                alert(j.error);
+                    alert(j.error);
                     form.find('button[type=submit]').prop('disabled', false);
-	            }
-	        });
-	    })
+                }
+            });
+        })
+        .on('change', 'input:radio[name=mail-type]', function() {
+            var disable = $(this).val() != 'custom';
+            var form = $(this).closest('form');
+            form.find('input[name=manual_subject]').prop('disabled', disable);
+            form.find('textarea[name=manual_body]').prop('disabled', disable);
+        })
         .on('submit', '.add-attendee', function(e) {
-	        e.preventDefault();
+            e.preventDefault();
 
-			var form = $(this);
+            var form = $(this);
             var slot_id = form.find('input[name=slot_id]').val();
-			form.find('button[type=submit]').prop('disabled', true);
-	        var datastring = form.serialize();
+            form.find('button[type=submit]').prop('disabled', true);
+            var datastring = form.serialize();
 
-	        $.ajax({
-	            type: $(this).attr('method'),
-	            url: $(this).attr('action'),
-	            data: datastring,
-	            dataType: "HTML",
+            $.ajax({
+                type: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: datastring,
+                dataType: "HTML",
 
-	            success: function(data) {
-					var slot = $('.panel[data-slot-id=' + slot_id + ']');
+                success: function(data) {
+                    var slot = $('.panel[data-slot-id=' + slot_id + ']');
                     var table = slot.find('.attendees tbody').append(data);
-	            },
-	            error: function(data) {
+                },
+                error: function(data) {
                     var j = $.parseJSON(data.responseText);
-	                alert(j.error);
+                    alert(j.error);
                     form.find('button[type=submit]').prop('disabled', false);
-	            }
-	        });
-	    })
-		.on('change', 'select[name=location]', function() {
-			var target = $(this).val();
-			var info = $(this).closest('form').find('.location-info');
+                }
+            });
+        })
+        .on('change', 'select[name=location]', function() {
+            var target = $(this).val();
+            var info = $(this).closest('form').find('.location-info');
 
-			/*
-				L'array locations viene generato direttamente dentro al template
-				event.edit
-			*/
-			for (var i = 0; i < locations.length; i++) {
-				var l = locations[i];
-				if (l.id == target) {
-					info.find('label[for=name]').closest('div').find('p').text(l.name);
-					info.find('label[for=address]').closest('div').find('p').text(l.address);
-					info.find('label[for=capacity]').closest('div').find('p').text(l.capacity);
-					info.find('label[for=phone]').closest('div').find('p').text(l.phone);
-					info.find('label[for=email]').closest('div').find('p').text(l.email);
-					break;
-				}
-			}
-		})
+            /*
+            	L'array locations viene generato direttamente dentro al template
+            	event.edit
+            */
+            for (var i = 0; i < locations.length; i++) {
+                var l = locations[i];
+                if (l.id == target) {
+                    info.find('label[for=name]').closest('div').find('p').text(l.name);
+                    info.find('label[for=address]').closest('div').find('p').text(l.address);
+                    info.find('label[for=capacity]').closest('div').find('p').text(l.capacity);
+                    info.find('label[for=phone]').closest('div').find('p').text(l.phone);
+                    info.find('label[for=email]').closest('div').find('p').text(l.email);
+                    break;
+                }
+            }
+        })
         .on('click', '.remove-attendee', function() {
             var button = $(this);
 
@@ -91,21 +97,21 @@ $(document).ready(function() {
                     success: function() {
                         button.closest('tr').remove();
                     },
-    	            error: function(data) {
+                    error: function(data) {
                         var j = $.parseJSON(data.responseText);
-    	                alert(j.error);
-    	            }
+                        alert(j.error);
+                    }
                 });
             }
         });
 
     $('.cells').on('click', '.delete-booking', function(e) {
-		e.preventDefault();
+        e.preventDefault();
 
-		if(confirm('Sei sicuro di voler cancellare questa prenotazione?')) {
-			$(this).closest('form').append('<input type="hidden" name="delete-me" value="1">').submit();
-		}
-	});
+        if (confirm('Sei sicuro di voler cancellare questa prenotazione?')) {
+            $(this).closest('form').append('<input type="hidden" name="delete-me" value="1">').submit();
+        }
+    });
 
     if ($('.many-rows').length != 0) {
         function manyRowsAddDeleteButtons(node) {

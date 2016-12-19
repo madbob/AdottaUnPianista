@@ -122,20 +122,24 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">Crea Nuovo Evento</h4>
+                                    <h4 class="modal-title">Invia Mail ai Partecipanti</h4>
                                 </div>
 
-                                {!! BootForm::open(['action' => 'UserController@store']) !!}
+                                {!! BootForm::open(['action' => 'SlotController@sendMail']) !!}
                                     <div class="modal-body">
-                                        {!! BootForm::text('name', 'Nome') !!}
-                                        {!! BootForm::text('surname', 'Cognome') !!}
-                                        {!! BootForm::text('phone', 'Telefono') !!}
-                                        {!! BootForm::email() !!}
-                                        {!! BootForm::password('password', 'Password') !!}
+                                        {!! csrf_field() !!}
+                                        {!! BootForm::hidden('slot_id', $slot->id) !!}
+                                        {!! BootForm::radios('mail-type', 'Tipo', [
+                                            'voided' => 'Evento annullato',
+                                            'confirm' => 'Evento confermato',
+                                            'custom' => 'Testo personalizzato (compila il testo sotto)',
+                                        ]) !!}
+                                        {!! BootForm::text('manual_subject', 'Oggetto', '', ['disabled' => 'disabled']) !!}
+                                        {!! BootForm::textarea('manual_body', 'Testo', '', ['disabled' => 'disabled']) !!}
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
-                                        <button type="submit" class="btn btn-primary">Salva</button>
+                                        <button type="submit" class="btn btn-primary">Invia</button>
                                     </div>
                                 {!! BootForm::close() !!}
                             </div>
