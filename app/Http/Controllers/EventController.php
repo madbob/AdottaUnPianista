@@ -20,7 +20,8 @@ class EventController extends Controller
             return redirect(url('/'));
         }
 
-        return view('event.list');
+        $events = Event::orderBy('start', 'desc')->get();
+        return view('event.list', ['events' => $events]);
     }
 
     public function store(Request $request)

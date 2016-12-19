@@ -15,7 +15,9 @@ class AdoptionController extends Controller
             return redirect(url('/'));
         }
 
-        return view('adoption.list');
+        $locations = Adoption::orderBy('created_at', 'desc')->get();
+
+        return view('adoption.list', ['locations' => $locations]);
     }
 
     public function create()
