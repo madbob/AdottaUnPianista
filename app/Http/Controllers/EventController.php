@@ -34,6 +34,7 @@ class EventController extends Controller
         $event = new Event();
         $event->name = $request->input('name', '');
         $event->description = $request->input('description', '');
+        $event->picture = '';
         $event->start = $this->decodeDate($request->input('start', ''));
         $event->end = $this->decodeDate($request->input('end', ''));
         $event->status = 'closed';
@@ -75,6 +76,7 @@ class EventController extends Controller
 
         $event->name = $request->input('name', '');
         $event->description = $request->input('description', '');
+        $event->picture = '';
         $event->start = $this->decodeDate($request->input('start', ''));
         $event->end = $this->decodeDate($request->input('end', ''));
         $event->status = $request->input('status', 'closed');
