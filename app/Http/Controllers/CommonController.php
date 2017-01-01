@@ -8,8 +8,7 @@ class CommonController extends Controller
 {
     public function home()
     {
-        $event = Event::where('status', 'published')->first();
-
-        return view('pages.home', ['event' => $event]);
+        $events = Event::whereIn('status', ['announced', 'published'])->orderBy('status', 'start')->get();
+        return view('pages.home', ['events' => $events]);
     }
 }

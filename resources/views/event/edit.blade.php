@@ -8,11 +8,13 @@
             {!! BootForm::open(['model' => $event, 'store' => 'EventController@store', 'update' => 'EventController@update']) !!}
 
                 {!! BootForm::text('name', 'Titolo') !!}
+                {!! BootForm::textarea('description', 'Introduzione') !!}
                 {!! BootForm::text('start', 'Data Inizio', $event->printableDate('start'), ['class' => 'date']) !!}
                 {!! BootForm::text('end', 'Data Fine', $event->printableDate('end'), ['class' => 'date']) !!}
                 {!! BootForm::radios('status', 'Stato', [
                     'closed' => 'Visibile solo agli amministratori',
-                    'published' => 'Visibile pubblicamente',
+                    'announced' => 'Visibile solo data e intro',
+                    'published' => 'Visibile pubblicamente e prenotabile',
                     'archived' => 'Archiviato in sola lettura',
                 ], $event->status) !!}
                 {!! BootForm::submit('Salva') !!}

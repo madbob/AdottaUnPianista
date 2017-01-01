@@ -11,6 +11,7 @@
 
         <link href="/css/app.css" rel="stylesheet">
         <link href="/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+        <link href="/css/mine.css" rel="stylesheet">
 
         <script>
             window.Laravel = <?php echo json_encode([

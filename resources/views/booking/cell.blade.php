@@ -1,7 +1,13 @@
 <?php
 
-$booking = $user->bookings()->where('slot_id', $slot->id)->first();
-$modificable = $slot->timestamp > (time() + (60 * 60 * 24));
+if (Auth::check()) {
+    $booking = $user->bookings()->where('slot_id', $slot->id)->first();
+    $modificable = $slot->timestamp > (time() + (60 * 60 * 24));
+}
+else {
+    $booking = null;
+    $modificable = false;
+}
 
 ?>
 

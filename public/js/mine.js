@@ -1,3 +1,10 @@
+function expandPage(identifier) {
+    var page = $('#' + identifier);
+    $('.page').not(page).removeClass('active');
+    page.addClass('active');
+    location.hash = '#' + identifier;
+}
+
 $(document).ready(function() {
     $('input.date').datepicker({
         format: 'DD dd MM yyyy',
@@ -5,6 +12,29 @@ $(document).ready(function() {
         language: 'it',
         clearBtn: true
     });
+
+    /*
+        Inizializzazione navigazione
+    */
+
+    $('#nav-sidebar a').click(function() {
+        $('.page').removeClass('active');
+    });
+
+    $('.cover').click(function() {
+        expandPage($(this).closest('.page').attr('id'));
+    });
+
+    if (location.hash != '') {
+        if (location.hash == '#grid')
+            $('#nav-sidebar a').click();
+        else
+            $(location.hash + ' .cover').click();
+    }
+
+    /*
+        Interfaccia amministrazione
+    */
 
     $('body')
         .on('submit', '.async-form', function(e) {
