@@ -16,6 +16,7 @@ html, body, #app, #grid {
 }
 
 #grid {
+    margin-top: 30px;
     display: inline-block;
     width: 90%;
     flex-wrap: wrap;
@@ -23,9 +24,13 @@ html, body, #app, #grid {
     float: left;
 }
 
-.page .cover {
-    transition: all 0.5s ease-in-out 0s;
+#grid.opened .page .cover {
     display: table;
+}
+
+.page .cover {
+    display: none;
+    transition: all 0.5s ease-in-out 0s;
     height: 300px;
     width: calc(50% - 110px);
     float: left;

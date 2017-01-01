@@ -3,6 +3,7 @@ function expandPage(identifier) {
     $('.page').not(page).removeClass('active');
     page.addClass('active');
     location.hash = '#' + identifier;
+    $('#grid').removeClass('opened');
 }
 
 $(document).ready(function() {
@@ -19,6 +20,7 @@ $(document).ready(function() {
 
     $('#nav-sidebar a').click(function() {
         $('.page').removeClass('active');
+        $('#grid').addClass('opened');
     });
 
     $('.cover').click(function() {

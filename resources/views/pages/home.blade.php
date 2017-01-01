@@ -4,9 +4,20 @@
 
 @section('content')
     <div id="nav-sidebar">
-        <a href="#grid">
-        MENU
-        </a>
+        <a class="btn btn-default" href="#grid">MENU</a>
+
+        @if (Auth::guest())
+            <a class="btn btn-default" href="{{ url('/login') }}">Login</a>
+        @else
+            @if(Auth::user()->admin == true)
+                <a class="btn btn-default" href="{{ url('/evento') }}">Amministrazione</a>
+            @endif
+
+            <a class="btn btn-default" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+        @endif
     </div>
 
     <div id="grid">
@@ -39,6 +50,29 @@
                     <hr/>
 
                     <a class="btn btn-default" href="{{ url('adozione/create') }}">VUOI OSPITARE UN CONCERTO A CASA TUA?</a>
+
+                    <hr/>
+
+                    <p>
+                        Con il Patrocinio della Città di Torino (logo) e della Circoscrizione 8 (logo), della Circoscrizione 4 (logo), della Circoscrizione 6 (logo), della Circoscrizione 7 (logo), della Circoscrizione 2 (logo)
+                    </p>
+
+                    <p>
+                        In collaborazione con
+                    </p>
+
+                    <ul>
+                        <li>Conservatorio Statale di Musica “G.Verdi” di Torino (logo)</li>
+                        <li>Conservatorio Statale di Musica “G.F. Ghedini” di Cuneo (logo)</li>
+                        <li>Conservatorio Statale di Musica “A.Vivaldi” di Alessandria (logo)</li>
+                        <li></li>
+                        <li>+ SpazioQuattro (logo)</li>
+                        <li>Hub Cecchi Point (logo)</li>
+                        <li>Cascina Roccafranca (logo)</li>
+                        <li>Bagni Pubblici di Via Agliè (logo)</li>
+                        <li></li>
+                        <li>Officina Informatica Libera (logo)</li>
+                    </ul>
                 </div>
             </div>
         </div>
