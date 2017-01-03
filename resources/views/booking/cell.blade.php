@@ -13,7 +13,7 @@ else {
 
 <div class="panel panel-{{ $booking != null ? 'info' : ($slot->available == 0 ? 'danger' : 'success') }}">
     <div class="panel-heading">
-        Ore {{ $slot->printableHour() }}
+        Ore {{ $slot->printableHour() }} {{ !empty($slot->name) ? ' - ' . $slot->name : '' }}
     </div>
 
     @if($slot->status == 'cancelled')

@@ -40,6 +40,7 @@ class SlotController extends Controller
         $slot->artist = $request->input('artist', '');
         $slot->contents = $request->input('contents', '');
         $slot->date = $request->input('date', '').' '.$request->input('hour', '');
+        $slot->name = $request->input('name', '');
         $slot->event_id = $event->id;
         $slot->location_id = $request->input('location', '');
         $slot->status = 'open';
@@ -64,6 +65,9 @@ class SlotController extends Controller
             $slot->status = 'cancelled';
         }
         else {
+            $date = explode(' ', $slot->date)[0];
+            $slot->date = $date.' '.$request->input('hour', '');
+            $slot->name = $request->input('name', '');
             $slot->artist = $request->input('artist', '');
             $slot->contents = $request->input('contents', '');
         }

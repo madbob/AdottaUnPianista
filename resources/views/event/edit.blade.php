@@ -89,6 +89,7 @@
                                                     {!! BootForm::hidden('event_id', $event->id) !!}
                                                     {!! BootForm::hidden('date', $d->date) !!}
                                                     {!! BootForm::text('hour', 'Orario') !!}
+                                                    {!! BootForm::text('name', 'Titolo') !!}
                                                     {!! BootForm::textarea('artist', 'Artista') !!}
                                                     {!! BootForm::textarea('contents', 'Programma') !!}
 

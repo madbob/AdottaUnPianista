@@ -53,7 +53,12 @@ $(document).ready(function() {
                 dataType: "HTML",
 
                 success: function(data) {
-                    form.closest('.panel').replaceWith(data);
+                    var panel = form.closest('.panel');
+                    var d = $(data);
+                    panel.replaceWith(d);
+                    d.find('button[type=submit]').text('Salvato').delay(1000).queue(function(next) {
+                        $(this).text('Salva').prop('disabled', false);
+                    });
                 },
                 error: function(data) {
                     var j = $.parseJSON(data.responseText);

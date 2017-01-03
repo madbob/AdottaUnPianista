@@ -1,10 +1,4 @@
 <div class="panel panel-{{ $slot->status == 'open' ? 'success' : 'danger' }}" data-slot-id="{{ $slot->id }}">
-    <div class="panel-heading">
-        <div class="form-group">
-            <label for="hour">Orario</label>
-            <input type="text" name="hour" value="{{ $slot->printableHour() }}" class="form-control">
-        </div>
-    </div>
     <div class="panel-body">
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#contents-{{ $slot->id }}" role="tab" data-toggle="tab">Contenuti</a></li>
@@ -15,6 +9,18 @@
             <div role="tabpanel" class="tab-pane active" id="contents-{{ $slot->id }}">
                 <br/>
                 {!! BootForm::open(['model' => $slot, 'update' => 'SlotController@update', 'class' => 'async-form']) !!}
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="hour">Orario</label>
+                            <input type="text" name="hour" value="{{ $slot->printableHour() }}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="name">Titolo</label>
+                            <input type="text" name="name" value="{{ $slot->name }}" class="form-control">
+                        </div>
+                    </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="artist">Artisti</label>
