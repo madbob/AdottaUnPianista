@@ -32,6 +32,14 @@ class Event extends Model
         return $days;
     }
 
+    public function getPhotosAttribute()
+    {
+        $path = storage_path() . '/app/photos/' . $this->id;
+        if (file_exists($path) == false)
+            mkdir($path, 0777);
+        return array_diff(scandir($path), ['..', '.']);
+    }
+
     public function printableDate($type)
     {
         return ucwords(Date::parse($this->$type)->format('l d F Y'));

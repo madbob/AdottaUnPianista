@@ -3,6 +3,10 @@
 @section('title', 'Modifica Evento')
 
 @section('acontent')
+    <div class="page-header">
+        <h2>Info</h2>
+    </div>
+
     <div class="row">
         <div class="col-md-12">
             {!! BootForm::open(['model' => $event, 'store' => 'EventController@store', 'update' => 'EventController@update']) !!}
@@ -33,6 +37,12 @@
     $available = true;
 
     ?>
+
+    <hr/>
+
+    <div class="page-header">
+        <h2>Concerti</h2>
+    </div>
 
     <div class="row">
         <div class="col-md-12">
@@ -119,6 +129,35 @@
             </table>
         </div>
     </div>
+
+    <hr/>
+
+    <div class="page-header">
+        <h2>Foto</h2>
+    </div>
+
+    <div class="row">
+        @foreach($event->photos as $photo)
+        <div class="col-md-3 event-photo">
+            <form method="POST" action="{{ url('evento/' . $event->id . '/foto/' . $photo) }}">
+                {{ csrf_field() }}
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit">Elimina</button>
+            </form>
+            <img class="img-responsive" src="{{ url('evento/' . $event->id . '/foto/' . $photo) }}">
+        </div>
+        @endforeach
+    </div>
+
+    <br/>
+
+    <div class="row">
+        <form action="{{ url('evento/' . $event->id . '/foto') }}" class="dropzone" id="event-{{ $event->id }}-dropzone">
+            {{ csrf_field() }}
+        </form>
+    </div>
+
+    <br/>
 
 	<script>
 		var locations = [

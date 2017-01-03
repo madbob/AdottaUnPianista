@@ -140,6 +140,28 @@ $(document).ready(function() {
                     }
                 });
             }
+        })
+        .on('submit', '.event-photo form', function(e) {
+            e.preventDefault();
+            var cell = $(this).closest('.event-photo');
+
+            if (confirm('Sei sicuro di rimuovere questa foto?')) {
+                var datastring = $(this).serialize();
+
+                $.ajax({
+                    type: $(this).attr('method'),
+                    url: $(this).attr('action'),
+                    data: datastring,
+
+                    success: function() {
+                        cell.remove();
+                    },
+                    error: function(data) {
+                        var j = $.parseJSON(data.responseText);
+                        alert(j.error);
+                    }
+                });
+            }
         });
 
     $('.cells').on('click', '.delete-booking', function(e) {

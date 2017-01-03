@@ -88,4 +88,30 @@ class EventController extends Controller
     public function destroy($id)
     {
     }
+
+    public function getPhoto($id, $name)
+    {
+        return response()->download(storage_path() . '/app/photos/' . $id . '/' . $name);
+    }
+
+    public function postPhoto(Request $request, $id)
+    {
+        $user = Auth::user();
+        if ($user == null || $user->admin == false) {
+            return redirect(url('/'));
+        }
+
+        echo $request->file('file')->store('photos/' . $id);
+    }
+
+    public function deletePhoto($id, $name)
+    {
+        $user = Auth::user();
+        if ($user == null || $user->admin == false) {
+            return redirect(url('/'));
+        }
+
+        $path = storage_path() . '/app/photos/' . $id . '/' . $name;
+        @unlink($path);
+    }
 }

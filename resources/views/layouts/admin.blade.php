@@ -11,6 +11,7 @@
 
         <link href="/css/app.css" rel="stylesheet">
         <link href="/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+        <link href="/css/dropzone.css" rel="stylesheet">
         <link href="/css/mine.css" rel="stylesheet">
 
         <script>
@@ -94,6 +95,7 @@
         <script type="application/javascript" src="/js/app.js"></script>
         <script type="application/javascript" src="/js/bootstrap-datepicker.min.js"></script>
         <script type="application/javascript" src="/js/bootstrap-datepicker.it.min.js"></script>
+        <script type="application/javascript" src="/js/dropzone.js"></script>
         <script type="application/javascript" src="/js/mine.js"></script>
     </body>
 </html>
