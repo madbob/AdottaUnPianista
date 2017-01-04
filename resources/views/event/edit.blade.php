@@ -133,7 +133,7 @@
     <hr/>
 
     <div class="page-header">
-        <h2>Foto</h2>
+        <h2>Galleria Fotografica</h2>
     </div>
 
     <div class="row">

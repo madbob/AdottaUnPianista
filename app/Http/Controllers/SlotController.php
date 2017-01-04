@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Mail;
 use Session;
+use PDF;
 use App\Event;
 use App\Slot;
 
@@ -140,5 +141,23 @@ class SlotController extends Controller
 
         Session::flash('message', 'Mail inviata ai partecipanti');
         return redirect(url('evento/'.$slot->event->id.'/edit'));
+    }
+
+    public function printable($id)
+    {
+        $user = Auth::user();
+        if ($user->admin == false) {
+            return redirect(url('/'));
+        }
+
+        $slot = Slot::findOrFail($id);
+        $html = view('event.printable', ['slot' => $slot])->render();
+
+        $name = sprintf('Partecipanti concerto %s', $slot->printableDate() . ' ' . $slot->printableHour());
+        $filename = $name . 'pdf';
+        PDF::SetTitle($name);
+        PDF::AddPage();
+        PDF::writeHTML($html, true, false, true, false, '');
+        PDF::Output($filename, 'D');
     }
 }

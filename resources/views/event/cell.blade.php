@@ -90,68 +90,71 @@
                             </tbody>
                         </table>
                     </div>
-
-                    <div class="col-md-12">
-                        <button class="btn btn-default" data-toggle="modal" data-target="#new-attendee-{{ $slot->id }}">Aggiungi</button>
-                        <button class="btn btn-default" data-toggle="modal" data-target="#send-mail-{{ $slot->id }}">Invia Mail</button>
-                        <button class="btn btn-default">Stampa</button>
-                    </div>
-
-                    <div class="modal fade" id="new-attendee-{{ $slot->id }}" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">Aggiungi Partecipante</h4>
-                                </div>
-
-                                {!! BootForm::open(['action' => 'BookingController@addAttendee', 'class' => 'form-horizontal add-attendee']) !!}
-                                    <div class="modal-body">
-                                        {!! csrf_field() !!}
-                                        {!! BootForm::hidden('slot_id', $slot->id) !!}
-                                        {!! BootForm::text('name', 'Nome') !!}
-                                        {!! BootForm::text('surname', 'Cognome') !!}
-                                        {!! BootForm::text('phone', 'Telefono') !!}
-                                        {!! BootForm::email() !!}
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
-                                        <button type="submit" class="btn btn-primary">Salva</button>
-                                    </div>
-                                {!! BootForm::close() !!}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal fade" id="send-mail-{{ $slot->id }}" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">Invia Mail ai Partecipanti</h4>
-                                </div>
-
-                                {!! BootForm::open(['action' => 'SlotController@sendMail']) !!}
-                                    <div class="modal-body">
-                                        {!! csrf_field() !!}
-                                        {!! BootForm::hidden('slot_id', $slot->id) !!}
-                                        {!! BootForm::radios('mail-type', 'Tipo', [
-                                            'voided' => 'Evento annullato',
-                                            'confirm' => 'Evento confermato',
-                                            'custom' => 'Testo personalizzato (compila il testo sotto)',
-                                        ]) !!}
-                                        {!! BootForm::text('manual_subject', 'Oggetto', '', ['disabled' => 'disabled']) !!}
-                                        {!! BootForm::textarea('manual_body', 'Testo', '', ['disabled' => 'disabled']) !!}
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
-                                        <button type="submit" class="btn btn-primary">Invia</button>
-                                    </div>
-                                {!! BootForm::close() !!}
-                            </div>
-                        </div>
-                    </div>
                 @endif
+
+                <div class="col-md-12">
+                    <button class="btn btn-default" data-toggle="modal" data-target="#new-attendee-{{ $slot->id }}">Aggiungi</button>
+
+                    @if($slot->bookings->isEmpty() == false)
+                        <button class="btn btn-default" data-toggle="modal" data-target="#send-mail-{{ $slot->id }}">Invia Mail</button>
+                        <a class="btn btn-default" href="{{ url('slot/' . $slot->id . '/print') }}">Stampa</a>
+                    @endif
+                </div>
+
+                <div class="modal fade" id="new-attendee-{{ $slot->id }}" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Aggiungi Partecipante</h4>
+                            </div>
+
+                            {!! BootForm::open(['action' => 'BookingController@addAttendee', 'class' => 'form-horizontal add-attendee']) !!}
+                                <div class="modal-body">
+                                    {!! csrf_field() !!}
+                                    {!! BootForm::hidden('slot_id', $slot->id) !!}
+                                    {!! BootForm::text('name', 'Nome') !!}
+                                    {!! BootForm::text('surname', 'Cognome') !!}
+                                    {!! BootForm::text('phone', 'Telefono') !!}
+                                    {!! BootForm::email() !!}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+                                    <button type="submit" class="btn btn-primary">Salva</button>
+                                </div>
+                            {!! BootForm::close() !!}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="send-mail-{{ $slot->id }}" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Invia Mail ai Partecipanti</h4>
+                            </div>
+
+                            {!! BootForm::open(['action' => 'SlotController@sendMail']) !!}
+                                <div class="modal-body">
+                                    {!! csrf_field() !!}
+                                    {!! BootForm::hidden('slot_id', $slot->id) !!}
+                                    {!! BootForm::radios('mail-type', 'Tipo', [
+                                        'voided' => 'Evento annullato',
+                                        'confirm' => 'Evento confermato',
+                                        'custom' => 'Testo personalizzato (compila il testo sotto)',
+                                    ]) !!}
+                                    {!! BootForm::text('manual_subject', 'Oggetto', '', ['disabled' => 'disabled']) !!}
+                                    {!! BootForm::textarea('manual_body', 'Testo', '', ['disabled' => 'disabled']) !!}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+                                    <button type="submit" class="btn btn-primary">Invia</button>
+                                </div>
+                            {!! BootForm::close() !!}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

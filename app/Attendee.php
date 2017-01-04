@@ -16,7 +16,7 @@ class Attendee extends Model
         if (empty($this->email))
             return $this->booking->user->email;
         else
-            $this->email;
+            return $this->email;
     }
 
     public function getRealPhoneAttribute()
@@ -24,6 +24,6 @@ class Attendee extends Model
         if (empty($this->phone))
             return $this->booking->user->phone;
         else
-            $this->phone;
+            return $this->phone;
     }
 }

@@ -168,7 +168,8 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
         Watson\BootstrapForm\BootstrapFormServiceProvider::class,
-	Jenssegers\Date\DateServiceProvider::class,
+        Jenssegers\Date\DateServiceProvider::class,
+        Elibyy\TCPDF\ServiceProvider::class,
 
         //
 
@@ -232,7 +233,8 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
         'BootForm' => Watson\BootstrapForm\Facades\BootstrapForm::class,
-	'Date' => Jenssegers\Date\Date::class,
+        'Date' => Jenssegers\Date\Date::class,
+        'PDF' => Elibyy\TCPDF\Facades\TCPDF::class
     ],
 
 ];

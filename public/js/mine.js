@@ -90,6 +90,7 @@ $(document).ready(function() {
                 success: function(data) {
                     var slot = $('.panel[data-slot-id=' + slot_id + ']');
                     var table = slot.find('.attendees tbody').append(data);
+                    form.closest('.modal').modal('hide');
                 },
                 error: function(data) {
                     var j = $.parseJSON(data.responseText);
