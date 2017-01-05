@@ -91,11 +91,11 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'surname' => $data['surname'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => bcrypt($data['password']),
             'verification_code' => str_random(15)
         ]);
     }
-
 
     public function activate(Request $request, $token)
     {
