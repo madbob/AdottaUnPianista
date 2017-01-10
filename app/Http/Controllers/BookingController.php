@@ -65,7 +65,7 @@ class BookingController extends Controller
                 $booking->slot_id = $slot->id;
                 $booking->save();
 
-                $attendees = [];
+                $count_attendees = 0;
                 for ($i = 0; $i < count($names); ++$i) {
                     $n = trim($names[$i]);
                     $s = trim($surnames[$i]);
@@ -78,12 +78,16 @@ class BookingController extends Controller
                     $a->surname = $s;
                     $a->booking_id = $booking->id;
                     $a->save();
+
+                    $count_attendees++;
                 }
 
-                Mail::send('emails.event_preconfirmed', ['slot' => $slot], function($message) use ($user) {
-                    $message->to($user->email);
-                    $message->subject(env('APP_NAME') . ': invito al concerto');
-                });
+                if ($count_attendees != 0) {
+                    Mail::send('emails.event_preconfirmed', ['slot' => $slot, 'count' => $count_attendees], function($message) use ($user) {
+                        $message->to($user->email);
+                        $message->subject(env('APP_NAME') . ': invito al concerto');
+                    });
+                }
 
             } else {
                 $attendees = $booking->attendees;
