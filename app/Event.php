@@ -44,4 +44,24 @@ class Event extends Model
     {
         return ucwords(Date::parse($this->$type)->format('l d F Y'));
     }
+
+    public function printableDates()
+    {
+        $start = strtotime($this->start);
+        $end = strtotime($this->end);
+
+        $start_day = date('d', $start);
+        $start_month = ucwords(Date::parse($this->start)->format('F'));
+        $start_year = date('Y', $start);
+        $end_day = date('d', $end);
+        $end_month = ucwords(Date::parse($this->end)->format('F'));
+        $end_year = date('Y', $end);
+
+        if ($start_month == $end_month) {
+            return sprintf('%s/%s %s %s', $start_day, $end_day, $start_month, $start_year);
+        }
+        else {
+            return sprintf('%s %s / %s %s', $start_day, $start_month, $end_day, $end_month);
+        }
+    }
 }

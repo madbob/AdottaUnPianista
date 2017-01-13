@@ -18,7 +18,7 @@ $(document).ready(function() {
         Inizializzazione navigazione
     */
 
-    $('#nav-sidebar a').click(function() {
+    $('.grid-opener').click(function() {
         $('.page').removeClass('active');
         $('#grid').addClass('opened');
     });
@@ -33,6 +33,17 @@ $(document).ready(function() {
         else
             $(location.hash + ' .cover').click();
     }
+
+    $('.intro-carousel .slide:first').addClass('active');
+
+    setInterval(function() {
+        var carousel = $('.intro-carousel');
+        var len = carousel.find('.slide').length + 1;
+        var index = carousel.find('.slide.active').removeClass('active').index() + 2;
+        if (index == len)
+            index = 1;
+        carousel.find('.slide:nth-child(' + index + ')').addClass('active');
+    }, 2000);
 
     /*
         Interfaccia amministrazione

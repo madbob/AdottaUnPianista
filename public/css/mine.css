@@ -1,153 +1,248 @@
 html, body, #app, #grid {
-    height: 100%;
-    box-sizing: border-box;
-}
+  height: 100%;
+  box-sizing: border-box; }
 
 .container {
-    height: 90%;
-    box-sizing: border-box;
-}
+  height: 90%;
+  box-sizing: border-box; }
 
 #nav-sidebar {
-    text-align: center;
-    display: inline-block;
-    width: 10%;
-    float: left;
-}
+  text-align: center;
+  display: inline-block;
+  width: 10%;
+  float: left; }
 
 #grid {
-    margin-top: 30px;
-    display: inline-block;
-    width: 90%;
-    flex-wrap: wrap;
-    position: relative;
-    float: left;
-}
+  margin-top: 30px;
+  margin-left: 30%;
+  display: inline-block;
+  width: 70%;
+  flex-wrap: wrap;
+  float: left; }
+
+.grid-opener {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  z-index: 3; }
 
 #grid.opened .page .cover {
-    display: table;
-}
+  display: table; }
+  #grid.opened .page .cover .details {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 10px; }
 
 .page .cover {
-    display: none;
-    transition: all 0.5s ease-in-out 0s;
-    height: 300px;
-    width: calc(50% - 110px);
-    float: left;
-    box-size: border;
-    border: 2px solid red;
-    margin-left: 100px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.page.active .cover {
-    transition: all 0.5s ease-in-out 0s;
-    transform: scale(0.5);
-}
-
+  display: none;
+  background-color: #F5EAE2;
+  background-image: url("/images/tex1.png");
+  background-size: cover;
+  transition: all 0.5s ease-in-out 0s;
+  height: 300px;
+  width: calc(50% - 110px);
+  float: left;
+  box-size: border;
+  margin-left: 100px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  cursor: pointer; }
 .page .contents {
-    padding: 50px;
-    transition: all 0.5s ease-in-out 0s;
-    display: table;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-}
-
+  display: none; }
+.page.active .cover {
+  transition: all 0.5s ease-in-out 0s;
+  transform: scale(0.5); }
 .page.active .contents {
-    transform: translate(0, 0);
-    transition: all 0.5s ease-in-out 0s;
-    background-color: #FFF;
-    opacity: 1;
-    z-index: 2;
-}
+  padding: 50px;
+  transition: all 0.5s ease-in-out 0s;
+  display: table;
+  opacity: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  transform: translate(0, 0);
+  transition: all 0.5s ease-in-out 0s;
+  background-color: #FFF;
+  opacity: 1;
+  z-index: 2; }
+
+#home .contents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; }
 
 .event-photo {
-    position: relative;
-}
-
-.event-photo form {
+  position: relative; }
+  .event-photo form {
     position: absolute;
     top: 10px;
-    left: 10px;
-}
+    left: 10px; }
+
+.intro-wrapper {
+  position: fixed;
+  top: 3%;
+  left: 3%;
+  width: 94%;
+  height: 94%; }
+  .intro-wrapper .intro-carousel {
+    width: 100%;
+    max-width: 100%;
+    height: 100%; }
+    .intro-wrapper .intro-carousel .slick-list {
+      height: 100%; }
+      .intro-wrapper .intro-carousel .slick-list .slick-track {
+        height: 100%; }
+    .intro-wrapper .intro-carousel .slide {
+      display: none;
+      background-size: cover; }
+      .intro-wrapper .intro-carousel .slide.active {
+        display: block;
+        position: relative;
+        max-width: 100%;
+        height: 100%; }
+        .intro-wrapper .intro-carousel .slide.active .intro-info {
+          padding-right: 20px;
+          padding-top: 70px;
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+          width: 403px;
+          height: 373px;
+          background-size: cover;
+          color: #000;
+          font-family: 'Rubik', sans-serif;
+          font-weight: bold;
+          font-size: 33px;
+          line-height: 25px;
+          text-align: right; }
+          .intro-wrapper .intro-carousel .slide.active .intro-info .info-month {
+            text-transform: lowercase; }
+          .intro-wrapper .intro-carousel .slide.active .intro-info .info-name {
+            margin-top: 20px;
+            display: block;
+            font-family: 'IM Fell Great Primer', serif; }
+            .intro-wrapper .intro-carousel .slide.active .intro-info .info-name:before {
+              display: block;
+              margin: 10px 0px 10px 0px;
+              content: url("/images/filetto2_left.png"); }
+            .intro-wrapper .intro-carousel .slide.active .intro-info .info-name:after {
+              display: block;
+              margin: 10px 0px 10px 0px;
+              content: url("/images/filetto2_right.png"); }
+        .intro-wrapper .intro-carousel .slide.active img {
+          width: 100%;
+          max-width: 100%; }
+      .intro-wrapper .intro-carousel .slide .intro-info-bg-0 {
+        background-image: url("/images/p1.png"); }
+      .intro-wrapper .intro-carousel .slide .intro-info-bg-1 {
+        background-image: url("/images/p2.png"); }
+      .intro-wrapper .intro-carousel .slide .intro-info-bg-2 {
+        background-image: url("/images/p3.png"); }
+
+.intro-text {
+  font-family: 'Rubik', sans-serif;
+  position: absolute;
+  top: 100%;
+  left: 3%;
+  width: 94%; }
+  .intro-text .mm-block {
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+    background-color: #E1693A;
+    background-image: url("/images/filetto1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #FFF; }
+    .intro-text .mm-block .major-text {
+      padding: 95px 130px 95px 130px;
+      float: left;
+      font-size: 30px;
+      line-height: 35px;
+      width: 50%; }
+    .intro-text .mm-block .minor-text {
+      padding: 95px 130px 130px 95px;
+      float: left;
+      font-size: 25px;
+      line-height: 35px;
+      width: 50%; }
+  .intro-text .candidate-block {
+    margin-top: 30px;
+    padding: 25px 130px 25px 130px;
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+    background-color: #FDA833;
+    text-transform: uppercase;
+    color: #FFF;
+    text-align: center; }
+    .intro-text .candidate-block a {
+      display: inline-block;
+      font-size: 30px;
+      font-weight: bold;
+      color: #FFF;
+      text-decoration: none; }
+      .intro-text .candidate-block a img {
+        margin: 0px 50px 0px 50px; }
+  .intro-text .logos img {
+    margin-top: 30px;
+    width: 100%; }
 
 @media (max-width: 800px) {
-    #nav-sidebar {
-        float: none;
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    #grid {
-        float: none;
-        width: 100%;
-    }
-    .page .cover {
-        width: calc(50% - 20px);
-        margin-left: 10px;
-    }
-}
+  #nav-sidebar {
+    float: none;
+    width: 100%;
+    margin-bottom: 10px; }
 
+  #grid {
+    float: none;
+    width: 100%; }
 
+  .page .cover {
+    width: calc(50% - 20px);
+    margin-left: 10px; } }
 /*
  * The MIT License
  * Copyright (c) 2012 Matias Meno <m@tias.me>
  */
-
 .dropzone, .dropzone * {
-    box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 .dropzone {
-    position: relative;
-}
-
-.dropzone .dz-preview {
+  position: relative; }
+  .dropzone .dz-preview {
     position: relative;
     display: inline-block;
     width: 120px;
-    margin: 0.5em;
-}
-
-.dropzone .dz-preview .dz-progress {
-    display: block;
-    height: 15px;
-    border: 1px solid #aaa;
-}
-
-.dropzone .dz-preview .dz-progress .dz-upload {
-    display: block;
-    height: 100%;
-    width: 0;
-    background: green;
-}
-
-.dropzone .dz-preview .dz-error-message {
-    color: red;
-    display: none;
-}
+    margin: 0.5em; }
+    .dropzone .dz-preview .dz-progress {
+      display: block;
+      height: 15px;
+      border: 1px solid #aaa; }
+      .dropzone .dz-preview .dz-progress .dz-upload {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: green; }
+    .dropzone .dz-preview .dz-error-message {
+      color: red;
+      display: none; }
 
 .dropzone .dz-preview.dz-error .dz-error-message, .dropzone .dz-preview.dz-error .dz-error-mark {
-    display: block;
-}
+  display: block; }
 
 .dropzone .dz-preview.dz-success .dz-success-mark {
-    display: block;
-}
+  display: block; }
 
 .dropzone .dz-preview .dz-error-mark, .dropzone .dz-preview .dz-success-mark {
-    position: absolute;
-    display: none;
-    left: 30px;
-    top: 30px;
-    width: 54px;
-    height: 58px;
-    left: 50%;
-    margin-left: -27px;
-}
+  position: absolute;
+  display: none;
+  left: 30px;
+  top: 30px;
+  width: 54px;
+  height: 58px;
+  left: 50%;
+  margin-left: -27px; }
+
+/*# sourceMappingURL=mine.css.map */
