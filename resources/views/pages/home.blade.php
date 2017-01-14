@@ -5,19 +5,6 @@
 @section('content')
     <div id="nav-sidebar">
         <a class="btn btn-default grid-opener" href="#grid"><img src="http://placehold.it/350x150"></a>
-
-        @if (Auth::guest())
-            <a class="btn btn-default" href="{{ url('/login') }}">Login</a>
-        @else
-            @if(Auth::user()->admin == true)
-                <a class="btn btn-default" href="{{ url('/evento') }}">Amministrazione</a>
-            @endif
-
-            <a class="btn btn-default" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                {{ csrf_field() }}
-            </form>
-        @endif
     </div>
 
     <div id="grid">
@@ -29,8 +16,6 @@
             </div>
             <div class="contents">
                 <div>
-                    <a class="btn btn-default grid-opener" href="#grid"><img src="http://placehold.it/350x150"></a>
-
                     <div class="intro-wrapper">
                         <div class="intro-carousel">
                             <?php $index = 0 ?>
@@ -54,6 +39,7 @@
                                         <p class="info-days">{{ $start_day }} / {{ $end_day }}</p>
                                         <p class="info-month">{{ $start_month }}</p>
                                         <p class="info-year">{{ $start_year }}</p>
+                                        <p class="info-area">{{ $event->area }}</p>
                                         <p class="info-name">{{ $event->name }}</p>
                                     </div>
                                 </div>
@@ -88,7 +74,8 @@
             <div class="page" id="event-{{ str_slug($event->name) }}">
                 <div class="cover">
                     <div class="details">
-                        <p class="dates">{{ $event->printableDates() }} | {{ 'pippo' }}</p>
+                        <img src="/images/events/mini-{{ $event->id }}.png">
+                        <p class="dates">{{ strtolower($event->printableDates()) }} | {{ $event->area }}</p>
                         <p class="title">{{ $event->name }}</p>
                     </div>
                 </div>

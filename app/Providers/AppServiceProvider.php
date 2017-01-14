@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Event;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +15,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('layouts.single', function ($view) {
+            $events = Event::whereIn('status', ['announced', 'published'])->orderBy('status', 'start')->get();
+            $view->with('events', $events);
+        });
     }
 
     /**

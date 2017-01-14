@@ -1,9 +1,14 @@
 function expandPage(identifier) {
     var page = $('#' + identifier);
-    $('.page').not(page).removeClass('active');
-    page.addClass('active');
-    location.hash = '#' + identifier;
-    $('#grid').removeClass('opened');
+    if (page.find('.contents').length != 0) {
+        $('.page').not(page).removeClass('active');
+        page.addClass('active');
+        location.hash = '#' + identifier;
+        $('#grid').removeClass('opened');
+    }
+    else {
+        window.location = '/home#' + identifier;
+    }
 }
 
 $(document).ready(function() {

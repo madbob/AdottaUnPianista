@@ -1,6 +1,7 @@
 html, body, #app, #grid {
   height: 100%;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif; }
 
 .container {
   height: 90%;
@@ -28,10 +29,6 @@ html, body, #app, #grid {
 
 #grid.opened .page .cover {
   display: table; }
-  #grid.opened .page .cover .details {
-    display: table-cell;
-    vertical-align: middle;
-    padding-left: 10px; }
 
 .page .cover {
   display: none;
@@ -47,6 +44,21 @@ html, body, #app, #grid {
   margin-bottom: 20px;
   overflow: hidden;
   cursor: pointer; }
+  .page .cover .details {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 45px; }
+    .page .cover .details img {
+      height: 40%;
+      margin-bottom: 30px; }
+    .page .cover .details .dates {
+      font-size: 23px;
+      margin-bottom: 0; }
+    .page .cover .details .title {
+      font-family: 'IM Fell Great Primer', serif;
+      font-style: italic;
+      font-size: 30px;
+      color: #F83743; }
 .page .contents {
   display: none; }
 .page.active .cover {
@@ -111,17 +123,22 @@ html, body, #app, #grid {
           height: 373px;
           background-size: cover;
           color: #000;
-          font-family: 'Rubik', sans-serif;
           font-weight: bold;
           font-size: 33px;
           line-height: 25px;
           text-align: right; }
           .intro-wrapper .intro-carousel .slide.active .intro-info .info-month {
-            text-transform: lowercase; }
+            text-transform: lowercase;
+            font-size: 25px; }
+          .intro-wrapper .intro-carousel .slide.active .intro-info .info-area {
+            color: #FFF; }
           .intro-wrapper .intro-carousel .slide.active .intro-info .info-name {
+            text-align: center;
+            margin-right: -60px;
             margin-top: 20px;
             display: block;
-            font-family: 'IM Fell Great Primer', serif; }
+            font-family: 'IM Fell Great Primer', serif;
+            font-style: italic; }
             .intro-wrapper .intro-carousel .slide.active .intro-info .info-name:before {
               display: block;
               margin: 10px 0px 10px 0px;
@@ -141,7 +158,6 @@ html, body, #app, #grid {
         background-image: url("/images/p3.png"); }
 
 .intro-text {
-  font-family: 'Rubik', sans-serif;
   position: absolute;
   top: 100%;
   left: 3%;
@@ -188,6 +204,24 @@ html, body, #app, #grid {
   .intro-text .logos img {
     margin-top: 30px;
     width: 100%; }
+
+.generic-text {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #E1693A;
+  color: #FFF;
+  padding: 95px 130px 95px 130px;
+  font-size: 25px;
+  line-height: 35px; }
+  .generic-text a {
+    color: #DDD;
+    text-decoration: underline; }
+
+.generic-button {
+  background-color: #FDA833;
+  text-transform: uppercase;
+  color: #FFF;
+  text-align: center; }
 
 @media (max-width: 800px) {
   #nav-sidebar {

@@ -20,6 +20,7 @@
                 {!! BootForm::open(['model' => new App\Event(), 'store' => 'EventController@store', 'update' => 'EventController@update']) !!}
                     <div class="modal-body">
                         {!! BootForm::text('name', 'Titolo') !!}
+                        {!! BootForm::text('area', 'Area') !!}
                         {!! BootForm::text('start', 'Data Inizio', null, ['class' => 'date']) !!}
                         {!! BootForm::text('end', 'Data Fine', null, ['class' => 'date']) !!}
                     </div>

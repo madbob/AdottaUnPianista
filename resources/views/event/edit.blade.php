@@ -12,6 +12,7 @@
             {!! BootForm::open(['model' => $event, 'store' => 'EventController@store', 'update' => 'EventController@update']) !!}
 
                 {!! BootForm::text('name', 'Titolo') !!}
+                {!! BootForm::text('area', 'Area') !!}
                 {!! BootForm::textarea('description', 'Introduzione') !!}
                 {!! BootForm::text('start', 'Data Inizio', $event->printableDate('start'), ['class' => 'date']) !!}
                 {!! BootForm::text('end', 'Data Fine', $event->printableDate('end'), ['class' => 'date']) !!}

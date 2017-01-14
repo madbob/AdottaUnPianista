@@ -22,7 +22,7 @@ class AdoptionController extends Controller
 
     public function create()
     {
-        return view('adoption.edit', ['location' => new Adoption()]);
+        return view('adoption.create', ['location' => new Adoption()]);
     }
 
     public function store(Request $request)
