@@ -22,7 +22,7 @@
 
         @foreach($events as $event)
             <div class="page" id="event-{{ str_slug($event->name) }}">
-                <div class="cover">
+                <div class="cover event-cell">
                     <div class="details">
                         <img src="/images/events/mini-{{ $event->id }}.png">
                         <p class="dates">{{ strtolower($event->printableDates()) }} | {{ $event->area }}</p>

@@ -9,14 +9,23 @@ $available = true;
 
 ?>
 
-<h1>{{ $event->name }}</h1>
-
-<p>
-    {!! nl2br($event->description) !!}
-</p>
+<div class="event-cell">
+    <div class="details">
+        <img class="img-responsive" src="/images/events/mini-{{ $event->id }}.png">
+        <p class="dates">{{ strtolower($event->printableDates()) }} | {{ $event->area }}</p>
+        <p class="title">{{ $event->name }}</p>
+        <p class="dates">{!! nl2br($event->description) !!}</p>
+    </div>
+</div>
 
 @if($event->status == 'published')
-    <table class="table cells">
+    @if(Auth::user() == null)
+        <div class="generic-button-large">
+            <a href="/login">Per prenotare, occorre essere registrati.<br/>Clicca qui per autenticarti o registrarti.</a>
+        </div>
+    @endif
+
+    <table class="table cells bookable-concerts">
         <thead>
             <tr>
                 @foreach($days as $d)

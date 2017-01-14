@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.single')
 
-@section('content')
+@section('single_content')
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
@@ -12,7 +12,7 @@
                         {!! BootForm::password('password') !!}
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">Login</button>
+                                <button type="submit" class="btn generic-button">Login</button>
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">Password Dimenticata?</a>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                         {!! BootForm::text('phone', 'Telefono') !!}
                         {!! BootForm::password('password') !!}
                         {!! BootForm::password('password_confirmation', 'Conferma Password') !!}
-                        {!! BootForm::submit('Registrati') !!}
+                        {!! BootForm::submit('Registrati', ['class' => 'btn generic-button']) !!}
                     {!! BootForm::close() !!}
                 </div>
             </div>

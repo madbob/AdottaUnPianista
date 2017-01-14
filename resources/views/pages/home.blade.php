@@ -58,7 +58,7 @@
                             </p>
                         </div>
 
-                        <div class="candidate-block">
+                        <div class="generic-button-large">
                             <a href="{{ url('adozione/create') }}"><img src="/images/filetto1_left.png"><span>VUOI OSPITARE UN CONCERTO A CASA TUA?</span><img src="/images/filetto1_right.png"></a>
                         </div>
 
@@ -72,7 +72,7 @@
 
         @foreach($events as $event)
             <div class="page" id="event-{{ str_slug($event->name) }}">
-                <div class="cover">
+                <div class="cover event-cell">
                     <div class="details">
                         <img src="/images/events/mini-{{ $event->id }}.png">
                         <p class="dates">{{ strtolower($event->printableDates()) }} | {{ $event->area }}</p>

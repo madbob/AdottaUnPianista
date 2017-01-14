@@ -14,7 +14,6 @@ html, body, #app, #grid {
   float: left; }
 
 #grid {
-  margin-top: 30px;
   margin-left: 30%;
   display: inline-block;
   width: 70%;
@@ -27,38 +26,42 @@ html, body, #app, #grid {
   left: 100px;
   z-index: 3; }
 
-#grid.opened .page .cover {
-  display: table; }
+#grid.opened {
+  padding-top: 30px; }
+  #grid.opened .page .cover {
+    display: table; }
 
-.page .cover {
-  display: none;
+.event-cell {
   background-color: #F5EAE2;
   background-image: url("/images/tex1.png");
   background-size: cover;
-  transition: all 0.5s ease-in-out 0s;
-  height: 300px;
-  width: calc(50% - 110px);
-  float: left;
   box-size: border;
-  margin-left: 100px;
-  margin-bottom: 20px;
-  overflow: hidden;
-  cursor: pointer; }
-  .page .cover .details {
+  overflow: hidden; }
+  .event-cell .details {
     display: table-cell;
     vertical-align: middle;
     padding: 45px; }
-    .page .cover .details img {
+    .event-cell .details img {
       height: 40%;
       margin-bottom: 30px; }
-    .page .cover .details .dates {
+    .event-cell .details .dates {
       font-size: 23px;
       margin-bottom: 0; }
-    .page .cover .details .title {
+    .event-cell .details .title {
       font-family: 'IM Fell Great Primer', serif;
       font-style: italic;
       font-size: 30px;
       color: #F83743; }
+
+.page .cover {
+  display: none;
+  transition: all 0.5s ease-in-out 0s;
+  height: 300px;
+  width: calc(50% - 110px);
+  float: left;
+  margin-left: 100px;
+  margin-bottom: 20px;
+  cursor: pointer; }
 .page .contents {
   display: none; }
 .page.active .cover {
@@ -77,12 +80,20 @@ html, body, #app, #grid {
   background-color: #FFF;
   opacity: 1;
   z-index: 2; }
+  .page.active .contents h1 {
+    font-family: 'IM Fell Great Primer', serif;
+    font-style: italic; }
 
 #home .contents {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%; }
+#home .intro-text {
+  position: absolute;
+  top: 100%;
+  left: 3%;
+  width: 94%; }
 
 .event-photo {
   position: relative; }
@@ -157,53 +168,30 @@ html, body, #app, #grid {
       .intro-wrapper .intro-carousel .slide .intro-info-bg-2 {
         background-image: url("/images/p3.png"); }
 
-.intro-text {
-  position: absolute;
-  top: 100%;
-  left: 3%;
-  width: 94%; }
-  .intro-text .mm-block {
-    box-sizing: border-box;
+.intro-text .mm-block {
+  box-sizing: border-box;
+  float: left;
+  width: 100%;
+  background-color: #E1693A;
+  background-image: url("/images/filetto1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #FFF; }
+  .intro-text .mm-block .major-text {
+    padding: 95px 130px 95px 130px;
     float: left;
-    width: 100%;
-    background-color: #E1693A;
-    background-image: url("/images/filetto1.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    color: #FFF; }
-    .intro-text .mm-block .major-text {
-      padding: 95px 130px 95px 130px;
-      float: left;
-      font-size: 30px;
-      line-height: 35px;
-      width: 50%; }
-    .intro-text .mm-block .minor-text {
-      padding: 95px 130px 130px 95px;
-      float: left;
-      font-size: 25px;
-      line-height: 35px;
-      width: 50%; }
-  .intro-text .candidate-block {
-    margin-top: 30px;
-    padding: 25px 130px 25px 130px;
-    box-sizing: border-box;
+    font-size: 30px;
+    line-height: 35px;
+    width: 50%; }
+  .intro-text .mm-block .minor-text {
+    padding: 95px 130px 130px 95px;
     float: left;
-    width: 100%;
-    background-color: #FDA833;
-    text-transform: uppercase;
-    color: #FFF;
-    text-align: center; }
-    .intro-text .candidate-block a {
-      display: inline-block;
-      font-size: 30px;
-      font-weight: bold;
-      color: #FFF;
-      text-decoration: none; }
-      .intro-text .candidate-block a img {
-        margin: 0px 50px 0px 50px; }
-  .intro-text .logos img {
-    margin-top: 30px;
-    width: 100%; }
+    font-size: 25px;
+    line-height: 35px;
+    width: 50%; }
+.intro-text .logos img {
+  margin-top: 30px;
+  width: 100%; }
 
 .generic-text {
   box-sizing: border-box;
@@ -223,19 +211,105 @@ html, body, #app, #grid {
   color: #FFF;
   text-align: center; }
 
+.generic-button-large {
+  margin-top: 30px;
+  padding: 25px 130px 25px 130px;
+  box-sizing: border-box;
+  float: left;
+  width: 100%;
+  background-color: #FDA833;
+  text-transform: uppercase;
+  color: #FFF;
+  text-align: center; }
+  .generic-button-large a {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFF;
+    text-decoration: none; }
+    .generic-button-large a img {
+      margin: 0px 50px 0px 50px; }
+
+.bookable-concerts .panel-body .lead {
+  font-family: 'IM Fell Great Primer', serif;
+  font-style: italic; }
+
+.booking-head {
+  background-color: #F5EAE2;
+  background-image: url("/images/tex1.png");
+  background-size: cover;
+  padding: 50px; }
+  .booking-head .row {
+    margin-bottom: 40px; }
+    .booking-head .row .info-dates {
+      text-align: right; }
+    .booking-head .row .info-name {
+      text-align: right;
+      font-family: 'IM Fell Great Primer', serif;
+      font-style: italic; }
+
 @media (max-width: 800px) {
+  html, body, .container-fluid, #app {
+    padding: 0;
+    margin: 0;
+    width: 100%; }
+
   #nav-sidebar {
     float: none;
     width: 100%;
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    text-align: center; }
+    #nav-sidebar .grid-opener {
+      position: inherit;
+      margin: auto; }
 
   #grid {
     float: none;
+    margin: 0;
     width: 100%; }
 
   .page .cover {
-    width: calc(50% - 20px);
-    margin-left: 10px; } }
+    width: 100%;
+    margin: 0  0 10px 0; }
+  .page.active .contents {
+    padding: 0; }
+
+  .intro-wrapper {
+    display: none; }
+
+  #home .contents {
+    position: inherit; }
+  #home .intro-text {
+    position: inherit;
+    width: 100%; }
+    #home .intro-text .mm-block {
+      box-sizing: border-box;
+      background-image: none;
+      float: left;
+      width: 100%;
+      color: #FFF; }
+      #home .intro-text .mm-block .major-text {
+        padding: 10px;
+        float: left;
+        font-size: 25px;
+        line-height: 27px;
+        width: 100%; }
+        #home .intro-text .mm-block .major-text:after {
+          content: url("/images/filetto1_right.png");
+          display: block;
+          text-align: center;
+          margin-top: 20px; }
+      #home .intro-text .mm-block .minor-text {
+        padding: 10px;
+        float: left;
+        font-size: 21px;
+        line-height: 23px;
+        width: 100%; }
+
+  .generic-button-large {
+    padding: 10px; }
+    .generic-button-large img {
+      display: none; } }
 /*
  * The MIT License
  * Copyright (c) 2012 Matias Meno <m@tias.me>
