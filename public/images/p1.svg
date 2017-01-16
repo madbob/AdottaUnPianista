@@ -1,12 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="402.65px" height="373.102px" viewBox="0 0 402.65 373.102" enable-background="new 0 0 402.65 373.102"
-	 xml:space="preserve">
-<g>
-	<path fill="#FFC500" d="M-0.856,246.168c0,69.429,56.283,125.712,125.711,125.712c0.508,0,1.01-0.033,1.516-0.039
-		c3.02,0.559,6.227,0.873,9.668,0.873h265.754V-0.387h-152.73c0,94.258-60.15,120.967-129.051,120.967
-		C37.503,120.58-0.856,178.365-0.856,246.168"/>
-</g>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg id="Livello_1" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" height="373.1px" viewBox="0 0 402.65 373.102" width="402.65px" version="1.1" y="0px" x="0px" enable-background="new 0 0 402.65 373.102">
+	<path d="m-0.856 246.17c0 69.429 56.283 125.71 125.71 125.71 0.508 0 1.01-0.033 1.516-0.039 3.02 0.559 6.227 0.873 9.668 0.873h265.75v-373.1h-152.73c0 94.258-60.15 120.97-129.05 120.97-82.507 0-120.87 57.78-120.87 125.59" fill="#FFC500"/>
 </svg>

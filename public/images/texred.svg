@@ -1,35 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Livello_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="616.82px" height="372px" viewBox="0 0 616.82 372" enable-background="new 0 0 616.82 372" xml:space="preserve">
-<rect fill="#EC1B33" width="616.82" height="372"/>
-<g>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg id="Livello_1" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" height="372px" viewBox="0 0 616.82 372" width="616.82px" version="1.1" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 616.82 372">
+<rect width="616.82" height="372" fill="#EC1B33"/>
 	<defs>
 		<rect id="SVGID_1_" width="616.82" height="372"/>
 	</defs>
 	<clipPath id="SVGID_2_">
-		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+		<use overflow="visible" xlink:href="#SVGID_1_"/>
 	</clipPath>
-	
-		<line clip-path="url(#SVGID_2_)" fill="none" stroke="#FFFFFF" stroke-width="0.25" x1="-746.864" y1="75.46" x2="1363.686" y2="75.46"/>
-	
-		<line clip-path="url(#SVGID_2_)" fill="none" stroke="#FFFFFF" stroke-width="0.25" x1="-746.864" y1="87.183" x2="1363.686" y2="87.183"/>
-	
-		<line clip-path="url(#SVGID_2_)" fill="none" stroke="#FFFFFF" stroke-width="0.25" x1="-746.864" y1="98.906" x2="1363.686" y2="98.906"/>
-	
-		<line clip-path="url(#SVGID_2_)" fill="none" stroke="#FFFFFF" stroke-width="0.25" x1="-746.864" y1="110.63" x2="1363.686" y2="110.63"/>
-	
-		<line clip-path="url(#SVGID_2_)" fill="none" stroke="#FFFFFF" stroke-width="0.25" x1="-746.864" y1="122.354" x2="1363.686" y2="122.354"/>
-	
-		<line clip-path="url(#SVGID_2_)" fill="none" stroke="#FFFFFF" stroke-width="0.25" x1="-746.864" y1="235.271" x2="1363.686" y2="235.271"/>
-	
-		<line clip-path="url(#SVGID_2_)" fill="none" stroke="#FFFFFF" stroke-width="0.25" x1="-746.864" y1="246.993" x2="1363.686" y2="246.993"/>
-	
-		<line clip-path="url(#SVGID_2_)" fill="none" stroke="#FFFFFF" stroke-width="0.25" x1="-746.864" y1="258.717" x2="1363.686" y2="258.717"/>
-	
-		<line clip-path="url(#SVGID_2_)" fill="none" stroke="#FFFFFF" stroke-width="0.25" x1="-746.864" y1="270.44" x2="1363.686" y2="270.44"/>
-	
-		<line clip-path="url(#SVGID_2_)" fill="none" stroke="#FFFFFF" stroke-width="0.25" x1="-746.864" y1="282.164" x2="1363.686" y2="282.164"/>
-</g>
+		<line y2="75.46" x1="-746.86" clip-path="url(#SVGID_2_)" x2="1363.7" stroke="#fff" y1="75.46" stroke-width=".25" fill="none"/>
+		<line y2="87.183" x1="-746.86" clip-path="url(#SVGID_2_)" x2="1363.7" stroke="#fff" y1="87.183" stroke-width=".25" fill="none"/>
+		<line y2="98.906" x1="-746.86" clip-path="url(#SVGID_2_)" x2="1363.7" stroke="#fff" y1="98.906" stroke-width=".25" fill="none"/>
+		<line y2="110.63" x1="-746.86" clip-path="url(#SVGID_2_)" x2="1363.7" stroke="#fff" y1="110.63" stroke-width=".25" fill="none"/>
+		<line y2="122.35" x1="-746.86" clip-path="url(#SVGID_2_)" x2="1363.7" stroke="#fff" y1="122.35" stroke-width=".25" fill="none"/>
+		<line y2="235.27" x1="-746.86" clip-path="url(#SVGID_2_)" x2="1363.7" stroke="#fff" y1="235.27" stroke-width=".25" fill="none"/>
+		<line y2="246.99" x1="-746.86" clip-path="url(#SVGID_2_)" x2="1363.7" stroke="#fff" y1="246.99" stroke-width=".25" fill="none"/>
+		<line y2="258.72" x1="-746.86" clip-path="url(#SVGID_2_)" x2="1363.7" stroke="#fff" y1="258.72" stroke-width=".25" fill="none"/>
+		<line y2="270.44" x1="-746.86" clip-path="url(#SVGID_2_)" x2="1363.7" stroke="#fff" y1="270.44" stroke-width=".25" fill="none"/>
+		<line y2="282.16" x1="-746.86" clip-path="url(#SVGID_2_)" x2="1363.7" stroke="#fff" y1="282.16" stroke-width=".25" fill="none"/>
 </svg>
