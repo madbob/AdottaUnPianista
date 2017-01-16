@@ -11,7 +11,7 @@ else {
 
 ?>
 
-<div class="panel">
+<div class="panel" data-slot-id="{{ $slot->id }}">
     <div class="panel-heading">
         Ore {{ $slot->printableHour() }} {{ !empty($slot->name) ? ' - ' . $slot->name : '' }}
     </div>
@@ -56,7 +56,7 @@ else {
 
 @if($modificable)
     <div class="collapse booking-form" id="book-slot-{{ $slot->id }}">
-        <form method="POST" action="{{ url('prenotazione') }}" class="async-form">
+        <form method="POST" action="{{ url('prenotazione') }}" class="running-booking-form">
             <input type="hidden" name="slot_id" value="{{ $slot->id }}">
             {!! csrf_field() !!}
 

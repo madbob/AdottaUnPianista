@@ -85,6 +85,36 @@ $(document).ready(function() {
                 }
             });
         })
+        .on('submit', '.running-booking-form', function(e) {
+            e.preventDefault();
+
+            var form = $(this);
+            form.find('button[type=submit]').prop('disabled', true);
+            var datastring = form.serialize();
+
+            $.ajax({
+                type: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: datastring,
+                dataType: "HTML",
+
+                success: function(data) {
+                    var slot_id = form.find('input:hidden[name=slot_id]').val();
+                    var panel = $('.panel[data-slot-id=' + slot_id + ']');
+                    form.closest('.booking-form').remove();
+                    var d = $(data);
+                    panel.replaceWith(d);
+                    d.find('button[type=submit]').text('Salvato').delay(1000).queue(function(next) {
+                        $(this).text('Salva').prop('disabled', false);
+                    });
+                },
+                error: function(data) {
+                    var j = $.parseJSON(data.responseText);
+                    alert(j.error);
+                    form.find('button[type=submit]').prop('disabled', false);
+                }
+            });
+        })
         .on('change', 'input:radio[name=mail-type]', function() {
             var disable = $(this).val() != 'custom';
             var form = $(this).closest('form');

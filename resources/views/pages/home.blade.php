@@ -48,6 +48,21 @@
                     </div>
 
                     <div class="intro-text">
+                        <?php $user = Auth::user() ?>
+                        @if($user && $user->admin == true)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-info text-center">
+                                        <a href="/evento">Amministrazione</a> | <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                         <div class="mm-block">
                             <p class="major-text">
                                 Adotta un pianista è un programma di concerti da realizzare negli appartamenti privati dei quartieri di San Salvario, San Donato, Barriera di Milano, Aurora Porta Palazzo, Mirafiori nord,  i cui proprietari si rendano disponibili ad accogliere musicisti e pubblico in casa propria.
