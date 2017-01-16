@@ -20,7 +20,7 @@
                         <div class="intro-carousel">
                             <?php $index = 0 ?>
                             @foreach($events as $event)
-                                <div class="slide" style="background-image: url('/images/stock.jpg')">
+                                <div class="slide" style="background-image: url('/images/events/cover-{{ $event->id }}.jpg')">
                                     <div class="intro-info intro-info-bg-{{ $index = (($index + 1) % 3) }}">
                                         <?php
 
