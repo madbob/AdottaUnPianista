@@ -210,6 +210,23 @@ html, body, #app, #grid {
     width: 50%; }
 .intro-text .logos img {
   width: 100%; }
+.intro-text .hp-events {
+  margin-top: 30px;
+  display: block;
+  float: left;
+  width: 100%; }
+  .intro-text .hp-events .hp-event span {
+    width: 49%;
+    display: inline-block; }
+  .intro-text .hp-events .hp-event .booking-head {
+    cursor: pointer;
+    margin-bottom: 0; }
+    .intro-text .hp-events .hp-event .booking-head .area {
+      padding-right: 10px;
+      text-align: right; }
+    .intro-text .hp-events .hp-event .booking-head .name {
+      margin-left: 0;
+      text-align: left; }
 
 .generic-text {
   box-sizing: border-box;
@@ -400,6 +417,12 @@ html, body, #app, #grid {
         font-size: 21px;
         line-height: 23px;
         width: 100%; }
+    #home .intro-text .hp-events .hp-event span {
+      width: 100%;
+      text-align: center;
+      display: block;
+      padding: 0 !important;
+      border: 0 !important; }
 
   .generic-button-large {
     padding: 10px; }

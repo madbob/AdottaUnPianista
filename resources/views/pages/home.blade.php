@@ -73,6 +73,18 @@
                             </p>
                         </div>
 
+                        <div class="hp-events">
+                            @foreach($events as $event)
+                                <div class="hp-event">
+                                    <a href="event-{{ str_slug($event->name) }}">
+                                        <div class="booking-head">
+                                            <span class="area">{{ strtolower($event->printableDates()) }}, {{ $event->area }}</span> <span class="name">{{ $event->name }}</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+
                         <div class="generic-button-large">
                             <a href="{{ url('adozione/create') }}"><img src="/images/filetto1_right.svg"><span>VUOI OSPITARE UN CONCERTO A CASA TUA?</span><img src="/images/filetto1_left.svg"></a>
                         </div>

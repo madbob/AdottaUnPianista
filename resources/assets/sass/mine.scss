@@ -297,6 +297,35 @@ html, body, #app, #grid {
             width: 100%;
         }
     }
+
+    .hp-events {
+        margin-top: 30px;
+        display: block;
+        float: left;
+        width: 100%;
+
+        .hp-event {
+            span {
+                width: 49%;
+                display: inline-block;
+            }
+
+            .booking-head {
+                cursor: pointer;
+                margin-bottom: 0;
+
+                .area {
+                    padding-right: 10px;
+                    text-align: right;
+                }
+
+                .name {
+                    margin-left: 0;
+                    text-align: left;
+                }
+            }
+        }
+    }
 }
 
 .generic-text {
@@ -582,6 +611,18 @@ html, body, #app, #grid {
                     font-size: 21px;
                     line-height: 23px;
                     width: 100%;
+                }
+            }
+
+            .hp-events {
+                .hp-event {
+                    span {
+                        width: 100%;
+                        text-align: center;
+                        display: block;
+                        padding: 0 !important;
+                        border: 0 !important;
+                    }
                 }
             }
         }

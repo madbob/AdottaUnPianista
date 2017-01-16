@@ -6,6 +6,7 @@ function expandPage(identifier) {
         location.hash = '#' + identifier;
         $('#grid').removeClass('opened');
         $('.grid-opener').removeClass('opened');
+        window.scrollTo(0, 0);
     }
     else {
         window.location = '/home#' + identifier;
@@ -32,6 +33,11 @@ $(document).ready(function() {
 
     $('.cover').click(function() {
         expandPage($(this).closest('.page').attr('id'));
+    });
+
+    $('.hp-events a').click(function(e) {
+        e.preventDefault();
+        expandPage($(this).attr('href'));
     });
 
     if (location.hash != '') {
