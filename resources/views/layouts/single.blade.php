@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="nav-sidebar">
-        <a class="btn btn-default grid-opener" href="#grid"><img src="http://placehold.it/350x150"></a>
+        <a class="grid-opener" href="#grid"></a>
     </div>
 
     <div id="grid">

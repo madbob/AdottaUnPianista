@@ -4,7 +4,7 @@
 
 @section('content')
     <div id="nav-sidebar">
-        <a class="btn btn-default grid-opener" href="#grid"><img src="http://placehold.it/350x150"></a>
+        <a class="grid-opener" href="#grid"></a>
     </div>
 
     <div id="grid">
@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="generic-button-large">
-                            <a href="{{ url('adozione/create') }}"><img src="/images/filetto1_left.png"><span>VUOI OSPITARE UN CONCERTO A CASA TUA?</span><img src="/images/filetto1_right.png"></a>
+                            <a href="{{ url('adozione/create') }}"><img src="/images/filetto1_right.svg"><span>VUOI OSPITARE UN CONCERTO A CASA TUA?</span><img src="/images/filetto1_left.svg"></a>
                         </div>
 
                         <div class="logos">

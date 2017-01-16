@@ -5,6 +5,7 @@ function expandPage(identifier) {
         page.addClass('active');
         location.hash = '#' + identifier;
         $('#grid').removeClass('opened');
+        $('.grid-opener').removeClass('opened');
     }
     else {
         window.location = '/home#' + identifier;
@@ -26,6 +27,7 @@ $(document).ready(function() {
     $('.grid-opener').click(function() {
         $('.page').removeClass('active');
         $('#grid').addClass('opened');
+        $('.grid-opener').addClass('opened');
     });
 
     $('.cover').click(function() {
