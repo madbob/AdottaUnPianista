@@ -392,7 +392,8 @@ html, body, #app, #grid {
 
             small {
                 font-size: 16px;
-                line-height: 16px !important;
+                line-height: 1.5;
+                display: block;
             }
         }
 
@@ -509,8 +510,6 @@ html, body, #app, #grid {
 
 @media (max-width: 800px) {
     html, body, .container-fluid, #app {
-        padding: 0;
-        margin: 0;
         width: 100%;
     }
 
@@ -523,6 +522,9 @@ html, body, #app, #grid {
         .grid-opener {
             position: inherit;
             margin: auto;
+            display: inline-block;
+            width: 200px;
+            height: 170px;
         }
     }
 
@@ -541,6 +543,7 @@ html, body, #app, #grid {
         &.active {
             .contents {
                 padding: 0;
+                display: block;
             }
         }
     }
@@ -589,6 +592,27 @@ html, body, #app, #grid {
 
         img {
             display: none;
+        }
+    }
+
+    .bookable-concerts {
+        .panel {
+            .panel-footer {
+                .still-available-wrapper {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .booking-head {
+        padding: 10px;
+
+        span {
+            text-align: center;
+            display: block;
+            padding: 0 !important;
+            border: 0 !important;
         }
     }
 }

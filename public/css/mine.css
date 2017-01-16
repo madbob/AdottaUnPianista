@@ -279,7 +279,8 @@ html, body, #app, #grid {
         margin-bottom: 14px; }
       .bookable-concerts .panel .panel-body small {
         font-size: 16px;
-        line-height: 16px !important; }
+        line-height: 1.5;
+        display: block; }
     .bookable-concerts .panel .panel-footer {
       margin-top: 30px;
       padding: 0;
@@ -347,8 +348,6 @@ html, body, #app, #grid {
 
 @media (max-width: 800px) {
   html, body, .container-fluid, #app {
-    padding: 0;
-    margin: 0;
     width: 100%; }
 
   #nav-sidebar {
@@ -358,7 +357,10 @@ html, body, #app, #grid {
     text-align: center; }
     #nav-sidebar .grid-opener {
       position: inherit;
-      margin: auto; }
+      margin: auto;
+      display: inline-block;
+      width: 200px;
+      height: 170px; }
 
   #grid {
     float: none;
@@ -369,7 +371,8 @@ html, body, #app, #grid {
     width: 100%;
     margin: 0  0 10px 0; }
   .page.active .contents {
-    padding: 0; }
+    padding: 0;
+    display: block; }
 
   .intro-wrapper {
     display: none; }
@@ -401,7 +404,18 @@ html, body, #app, #grid {
   .generic-button-large {
     padding: 10px; }
     .generic-button-large img {
-      display: none; } }
+      display: none; }
+
+  .bookable-concerts .panel .panel-footer .still-available-wrapper {
+    display: block; }
+
+  .booking-head {
+    padding: 10px; }
+    .booking-head span {
+      text-align: center;
+      display: block;
+      padding: 0 !important;
+      border: 0 !important; } }
 /*
  * The MIT License
  * Copyright (c) 2012 Matias Meno <m@tias.me>
