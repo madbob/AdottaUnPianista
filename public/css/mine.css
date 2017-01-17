@@ -195,19 +195,22 @@ html, body, #app, #grid {
   background-image: url("/images/filetto1.svg");
   background-repeat: no-repeat;
   background-position: center;
-  color: #FFF; }
+  color: #FFF;
+  display: table-cell;
+  font-size: 30px;
+  line-height: 35px; }
   .intro-text .mm-block .major-text {
     padding: 95px 130px 95px 130px;
     float: left;
-    font-size: 30px;
-    line-height: 35px;
-    width: 50%; }
+    width: 50%;
+    display: table-cell;
+    vertical-align: middle; }
   .intro-text .mm-block .minor-text {
-    padding: 95px 130px 130px 95px;
+    padding: 95px 130px 95px 130px;
     float: left;
-    font-size: 25px;
-    line-height: 35px;
-    width: 50%; }
+    width: 50%;
+    display: table-cell;
+    vertical-align: middle; }
 .intro-text .logos img {
   width: 100%; }
 .intro-text .hp-events {
@@ -363,6 +366,17 @@ html, body, #app, #grid {
     margin-left: 10px;
     border-left: 1px solid #FFF; }
 
+@media (max-width: 1024px) {
+  #nav-sidebar .grid-opener {
+    width: 200px;
+    height: 185px; }
+
+  .page .cover {
+    margin-left: 30px;
+    width: calc(50% - 70px); }
+
+  .generic-button-large img {
+    display: none; } }
 @media (max-width: 800px) {
   html, body, .container-fluid, #app {
     width: 100%; }
@@ -404,28 +418,29 @@ html, body, #app, #grid {
       background-image: none;
       float: left;
       width: 100%;
-      color: #FFF; }
+      color: #FFF;
+      font-size: 25px;
+      line-height: 27px; }
       #home .intro-text .mm-block .major-text {
         padding: 10px;
         float: left;
-        font-size: 25px;
-        line-height: 27px;
         width: 100%; }
       #home .intro-text .mm-block .minor-text {
         padding: 10px;
         float: left;
-        font-size: 21px;
-        line-height: 23px;
         width: 100%; }
-    #home .intro-text .hp-events .hp-event span {
-      width: 100%;
-      text-align: center;
-      display: block;
-      padding: 0 !important;
-      border: 0 !important; }
+    #home .intro-text .hp-events {
+      float: none; }
+      #home .intro-text .hp-events .hp-event span {
+        width: 100%;
+        text-align: center;
+        display: block;
+        padding: 0 !important;
+        border: 0 !important; }
 
   .generic-button-large {
-    padding: 10px; }
+    padding: 10px;
+    float: none; }
     .generic-button-large img {
       display: none; }
 
