@@ -70,27 +70,27 @@
                             Non ci sono utenti prenotati
                         </p>
                     </div>
-                @else
-                    <div class="col-md-12">
-                        <table class="table attendees">
-                            <thead>
-                                <tr>
-                                    <th>Nome e Cognome</th>
-                                    <th>Mail</th>
-                                    <th>Telefono</th>
-                                    <th>Azioni</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($slot->bookings as $booking)
-                                    @foreach($booking->attendees as $attendee)
-                                        @include('event.attendee', ['attendee' => $attendee])
-                                    @endforeach
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
                 @endif
+
+                <div class="col-md-12">
+                    <table class="table attendees">
+                        <thead>
+                            <tr>
+                                <th>Nome e Cognome</th>
+                                <th>Mail</th>
+                                <th>Telefono</th>
+                                <th>Azioni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($slot->bookings as $booking)
+                                @foreach($booking->attendees as $attendee)
+                                    @include('event.attendee', ['attendee' => $attendee])
+                                @endforeach
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="col-md-12">
                     <button class="btn btn-default" data-toggle="modal" data-target="#new-attendee-{{ $slot->id }}">Aggiungi</button>

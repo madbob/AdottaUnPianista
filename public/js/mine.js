@@ -143,7 +143,9 @@ $(document).ready(function() {
 
                 success: function(data) {
                     var slot = $('.panel[data-slot-id=' + slot_id + ']');
-                    var table = slot.find('.attendees tbody').append(data);
+                    var table = slot.find('.attendees tbody');
+                    table.append(data);
+                    table.closest('.tab-pane').find('.alert-warning').parent().remove();
                     form.closest('.modal').modal('hide');
                 },
                 error: function(data) {
