@@ -49,12 +49,15 @@
 
                     <div class="intro-text">
                         <?php $user = Auth::user() ?>
-                        @if($user && $user->admin == true)
+                        @if($user)
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="alert alert-info text-center">
-                                        <a href="/evento">Amministrazione</a> | <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                        @if($user->admin == true)
+                                            <a href="/evento">Amministrazione</a> |
+                                        @endif
 
+                                        <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
