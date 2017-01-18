@@ -32,9 +32,9 @@ class EventController extends Controller
         }
 
         $event = new Event();
-        $event->name = $request->input('name', '');
-        $event->area = $request->input('area', '');
-        $event->description = $request->input('description', '');
+        $event->name = trim($request->input('name', ''));
+        $event->area = trim($request->input('area', ''));
+        $event->description = trim($request->input('description', ''));
         $event->picture = '';
         $event->start = $this->decodeDate($request->input('start', ''));
         $event->end = $this->decodeDate($request->input('end', ''));
@@ -75,9 +75,9 @@ class EventController extends Controller
             return redirect(url('evento'));
         }
 
-        $event->name = $request->input('name', '');
-        $event->area = $request->input('area', '');
-        $event->description = $request->input('description', '');
+        $event->name = trim($request->input('name', ''));
+        $event->area = trim($request->input('area', ''));
+        $event->description = trim($request->input('description', ''));
         $event->picture = '';
         $event->start = $this->decodeDate($request->input('start', ''));
         $event->end = $this->decodeDate($request->input('end', ''));

@@ -13,7 +13,7 @@ else {
 
 <div class="panel" data-slot-id="{{ $slot->id }}">
     <div class="panel-heading">
-        Ore {{ $slot->printableHour() }} {{ !empty($slot->name) ? ' - ' . $slot->name : '' }}
+        Ore {{ $slot->printableHour() }} {{ !empty($slot->name) ? ' - ' . trim($slot->name) : '' }}
     </div>
 
     @if($slot->status == 'cancelled')
@@ -28,10 +28,10 @@ else {
     @else
         <div class="panel-body">
             <p class="lead">
-                {!! nl2br($slot->artist) !!}
+                {!! nl2br(trim($slot->artist)) !!}
             </p>
             <small>
-                {!! nl2br($slot->contents) !!}
+                {!! nl2br(trim($slot->contents)) !!}
             </small>
         </div>
         <div class="panel-footer">

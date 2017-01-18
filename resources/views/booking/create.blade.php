@@ -7,11 +7,11 @@ $days = $event->days();
 <div class="row">
     <div class="col-md-12">
         <div class="booking-head">
-            <span class="area">{{ $event->area }}</span> <span class="name">{{ $event->name }}</span>
+            <span class="area">{{ trim($event->area) }}</span> <span class="name">{{ trim($event->name) }}</span>
         </div>
 
         <p>
-            <p>{!! nl2br($event->description) !!}</p>
+            <p>{!! nl2br(trim($event->description)) !!}</p>
         </p>
     </div>
 </div>
