@@ -48,7 +48,6 @@ html, body, #app, #grid {
     vertical-align: middle;
     padding: 45px; }
     .event-cell .details img {
-      height: 40%;
       margin-bottom: 30px; }
     .event-cell .details .dates {
       font-size: 23px;
@@ -62,7 +61,7 @@ html, body, #app, #grid {
 .page .cover {
   display: none;
   transition: all 0.5s ease-in-out 0s;
-  height: 300px;
+  height: 390px;
   width: calc(50% - 110px);
   float: left;
   margin-left: 100px;
@@ -376,7 +375,10 @@ html, body, #app, #grid {
     width: calc(50% - 70px); }
 
   .generic-button-large img {
-    display: none; } }
+    display: none; }
+
+  .bookable-concerts .btn {
+    font-size: 15px; } }
 @media (max-width: 800px) {
   html, body, .container-fluid, #app {
     width: 100%; }
@@ -391,7 +393,7 @@ html, body, #app, #grid {
       margin: auto;
       display: inline-block;
       width: 200px;
-      height: 170px; }
+      height: 185px; }
 
   #grid {
     float: none;
