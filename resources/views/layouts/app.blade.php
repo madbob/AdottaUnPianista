@@ -8,11 +8,24 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Adotta un Pianista') }}</title>
 
         <link href="/css/app.css" rel="stylesheet">
         <link href="/css/bootstrap-datepicker3.min.css" rel="stylesheet">
         <link href="/css/mine.css" rel="stylesheet">
+
+        <meta property="og:site_name" content="Adotta un Pianista" />
+        <meta property="og:title" content="Adotta un Pianista" />
+        <meta property="og:url" content="{{ env('APP_URL') }}" />
+        <meta property="og:image" content="{{ env('APP_URL') }}/images/fb.jpg" />
+        <meta property="og:type" content="website" />
+        <meta property="og:country-name" content="Italy" />
+        <meta property="og:email" content="{{ env('MAIL_FROM_ADDRESS') }}" />
+        <meta property="og:locale" content="it_IT" />
+
+        <meta name="twitter:title" content="Adotta un Pianista" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:url" content="{{ env('APP_URL') }}" />
 
         <script>
             window.Laravel = <?php echo json_encode([
