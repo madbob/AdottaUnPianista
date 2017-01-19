@@ -146,7 +146,10 @@ $(document).ready(function() {
                     var table = slot.find('.attendees tbody');
                     table.append(data);
                     table.closest('.tab-pane').find('.alert-warning').parent().remove();
+
                     form.closest('.modal').modal('hide');
+                    form.find('.form-group input').val('');
+                    form.find('button[type=submit]').prop('disabled', false);
                 },
                 error: function(data) {
                     var j = $.parseJSON(data.responseText);
