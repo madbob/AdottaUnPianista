@@ -49,5 +49,21 @@
         <script type="application/javascript" src="/js/bootstrap-datepicker.min.js"></script>
         <script type="application/javascript" src="/js/bootstrap-datepicker.it.min.js"></script>
         <script type="application/javascript" src="/js/mine.js"></script>
+
+        <script type="text/javascript">
+            var _paq = _paq || [];
+            _paq.push(["setDomains", ["*.adottaunpianista.it"]]);
+            _paq.push(['disableCookies']);
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function() {
+                var u="//stats.madbob.org/";
+                _paq.push(['setTrackerUrl', u+'piwik.php']);
+                _paq.push(['setSiteId', '5']);
+                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+            })();
+        </script>
+        <noscript><p><img src="//stats.madbob.org/piwik.php?idsite=5" style="border:0;" alt="" /></p></noscript>
     </body>
 </html>
