@@ -1,6 +1,6 @@
 <html>
     <body>
-        <h3>Partecipanti concerto {{ $slot->printableDate() }} {{ $slot->printableHour() }}</h3>
+        <h3>Partecipanti concerto {{ $slot->printableDate() }} {{ $slot->printableHour() }}, {{ $slot->location->address }}</h3>
 
         <hr/>
 
