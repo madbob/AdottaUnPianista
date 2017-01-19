@@ -176,6 +176,11 @@ class BookingController extends Controller
         $a->booking_id = $booking->id;
         $a->save();
 
+        Mail::send('emails.event_preconfirmed', ['slot' => $slot, 'count' => 1], function($message) use ($a) {
+            $message->to($a->email);
+            $message->subject(env('APP_NAME') . ': invito al concerto');
+        });
+
         return view('event.attendee', ['attendee' => $a]);
     }
 
