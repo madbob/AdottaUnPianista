@@ -19,8 +19,6 @@
         <meta property="og:url" content="{{ env('APP_URL') }}/home" />
         <meta property="og:image" content="{{ env('APP_URL') }}/images/fb.jpg" />
         <meta property="og:type" content="website" />
-        <meta property="og:country-name" content="Italy" />
-        <meta property="og:email" content="{{ env('MAIL_FROM_ADDRESS') }}" />
         <meta property="og:locale" content="it_IT" />
 
         <meta name="twitter:title" content="Adotta un Pianista" />
