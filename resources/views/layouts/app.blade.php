@@ -16,7 +16,7 @@
 
         <meta property="og:site_name" content="Adotta un Pianista" />
         <meta property="og:title" content="Adotta un Pianista" />
-        <meta property="og:url" content="{{ env('APP_URL') }}" />
+        <meta property="og:url" content="{{ env('APP_URL') }}/home" />
         <meta property="og:image" content="{{ env('APP_URL') }}/images/fb.jpg" />
         <meta property="og:type" content="website" />
         <meta property="og:country-name" content="Italy" />
