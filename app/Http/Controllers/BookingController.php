@@ -46,6 +46,11 @@ class BookingController extends Controller
                 $booking->attendees()->delete();
                 $booking->delete();
                 $booking = null;
+
+                Mail::send('emails.booking_cancelled', ['slot' => $slot], function($message) use ($user) {
+                    $message->to($user->email);
+                    $message->subject(env('APP_NAME') . ': prenotazione annullata');
+                });
             }
         } else {
             $names = $request->input('name');
