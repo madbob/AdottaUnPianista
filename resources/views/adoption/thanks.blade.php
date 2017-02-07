@@ -1,16 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.single')
 
 @section('title', 'Grazie!')
 
-@section('content')
+@section('single_content')
+    <div class="row">
+        <div class="col-md-12">
+            <div class="generic-button-large">
+                <span>Grazie per la tua adesione!</span>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales, mauris vitae tristique laoreet, massa libero ultrices sem, eget ultricies nibh augue a nibh. Praesent eu vulputate enim. Donec volutpat eget nisl quis posuere. Praesent dapibus quam et arcu mattis hendrerit. Aliquam mattis quis nulla non viverra. Quisque id felis eu orci efficitur vehicula tincidunt ut elit. Donec magna mi, aliquet vitae malesuada sit amet, tempor nec quam. Morbi ultrices feugiat tellus at mattis. Nunc et viverra neque. Curabitur efficitur condimentum euismod. Vestibulum vel nunc ipsum.
+                Verrai prossimamente contattato per maggiori informazioni.
             </p>
 
             <p class="text-center">
-                <a href="{{ url('/') }}" class="btn btn-default">Torna alla homepage</a>
+                <a href="{{ url('/') }}" class="btn generic-button">Torna alla homepage</a>
             </p>
         </div>
     </div>
