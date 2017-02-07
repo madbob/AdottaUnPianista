@@ -36,6 +36,7 @@
 
         <div class="col-md-6">
             <form method="POST" action="{{ url('adozione') }}">
+                {!! csrf_field() !!}
                 <input type="text" name="name" placeholder="nome">
                 <input type="text" name="surname" placeholder="cognome">
                 <input type="text" name="address" placeholder="indirizzo">
