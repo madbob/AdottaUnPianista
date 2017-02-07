@@ -14,15 +14,30 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($slot->bookings as $booking)
-                    @foreach($booking->attendees as $attendee)
-                        <tr>
-                            <td width="20%">{{ $attendee->name }}</td>
-                            <td width="20%">{{ $attendee->surname }}</td>
-                            <td width="20%">{{ $attendee->real_phone }}</td>
-                            <td width="40%">&nbsp;</td>
-                        </tr>
-                    @endforeach
+                <?php
+
+                $attendees = [];
+
+                foreach($slot->bookings as $booking)
+                    foreach($booking->attendees as $attendee)
+                        $attendees[] = $attendee;
+
+                usort($attendees, function($a, $b) {
+                    $ret = strcmp($a->surname, $b->surname);
+                    if ($ret == 0)
+                        $ret = strcmp($a->name, $b->name);
+                    return $ret;
+                });
+
+                ?>
+
+                @foreach($attendees as $attendee)
+                    <tr>
+                        <td width="20%">{{ $attendee->name }}</td>
+                        <td width="20%">{{ $attendee->surname }}</td>
+                        <td width="20%">{{ $attendee->real_phone }}</td>
+                        <td width="40%">&nbsp;</td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>

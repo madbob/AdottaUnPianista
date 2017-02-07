@@ -83,10 +83,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($slot->bookings as $booking)
-                                @foreach($booking->attendees as $attendee)
-                                    @include('event.attendee', ['attendee' => $attendee])
-                                @endforeach
+                            <?php
+
+                            $attendees = [];
+
+                            foreach($slot->bookings as $booking)
+                                foreach($booking->attendees as $attendee)
+                                    $attendees[] = $attendee;
+
+                            usort($attendees, function($a, $b) {
+                                $ret = strcmp($a->surname, $b->surname);
+                                if ($ret == 0)
+                                    $ret = strcmp($a->name, $b->name);
+                                return $ret;
+                            });
+
+                            ?>
+
+                            @foreach($attendees as $attendee)
+                                @include('event.attendee', ['attendee' => $attendee])
                             @endforeach
                         </tbody>
                     </table>
