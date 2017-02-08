@@ -13,7 +13,7 @@
                 <div class="list-group">
                     @foreach($locations as $location)
                         <a href="{{ url('adozione/' . $location->id . '/edit') }}" class="list-group-item {{ $location->status == 'confirmed' ? 'active' : '' }}">
-                            {{ $location->address }}
+                            {{ $location->address . ' - ' . $location->surname . ' ' . $location->name }}
                             @if($location->status == 'pending')
                                 <span class="badge">In Attesa</span>
                             @endif

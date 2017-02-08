@@ -52,7 +52,7 @@
                 <input type="text" name="address" placeholder="indirizzo">
                 <input type="text" name="phone" placeholder="telefono">
                 <input type="text" name="email" placeholder="email">
-                <textarea rows="5" name="name" placeholder="note"></textarea>
+                <textarea rows="5" name="notes" placeholder="note"></textarea>
                 <button type="submit" class="btn generic-button">Invia candidatura</button>
             </form>
         </div>
