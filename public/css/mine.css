@@ -176,6 +176,12 @@ html, body, #app, #grid {
               display: block;
               margin: 10px 0px 10px 0px;
               content: url("/images/filetto2_left.svg"); }
+          .intro-wrapper .intro-carousel .slide.active .intro-info .info-adoption {
+            margin-top: 80px;
+            color: #FFF;
+            line-height: 28px;
+            width: 90%;
+            float: right; }
         .intro-wrapper .intro-carousel .slide.active img {
           width: 100%;
           max-width: 100%; }
