@@ -28,6 +28,42 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12 form-horizontal">
+            <div class="form-group">
+                <div class="col-md-10 col-md-offset-2">
+                    <button class="btn btn-default" data-toggle="modal" data-target="#new-mail">Invia Mail a tutti i Partecipanti</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="new-mail" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Invia Mail a tutti i Partecipanti</h4>
+				</div>
+
+				{!! BootForm::open(['action' => 'EventController@sendMail']) !!}
+					<div class="modal-body">
+                        <div class="alert alert-info">
+                            Manda una mail a tutti i partecipanti all'evento (tutti gli indirizzi mail registrati per tutti i concerti).
+                        </div>
+
+                        {!! BootForm::text('subject', 'Oggetto') !!}
+                        {!! BootForm::textarea('body', 'Testo') !!}
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+						<button type="submit" class="btn btn-primary">Salva</button>
+					</div>
+				{!! BootForm::close() !!}
+			</div>
+		</div>
+	</div>
+
     <?php
 
     $days = $event->days();

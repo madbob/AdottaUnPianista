@@ -94,6 +94,7 @@ class SlotController extends Controller
         $type = $request->input('mail-type');
         switch($type) {
             case 'voided':
+                $loggable = '[Mail Standard]';
                 $subject = 'concerto annullato';
                 $template = 'emails.event_cancelled';
                 $parameters = [
@@ -102,6 +103,7 @@ class SlotController extends Controller
                 break;
 
             case 'confirm':
+                $loggable = '[Mail Standard]';
                 $subject = 'concerto confermato';
                 $template = 'emails.event_confirmed';
                 $parameters = [
@@ -110,6 +112,7 @@ class SlotController extends Controller
                 break;
 
             case 'custom':
+                $loggable = $request->input('manual_body');
                 $subject = $request->input('manual_subject');
                 $template = 'emails.wrapper';
                 $parameters = [
@@ -138,6 +141,8 @@ class SlotController extends Controller
                 });
             }
         }
+
+        Archive::put('Tutti i partecipanti a concerto ' . $slot->name, $subject, $loggable);
 
         Session::flash('message', 'Mail inviata ai partecipanti');
         return redirect(url('evento/'.$slot->event->id.'/edit'));

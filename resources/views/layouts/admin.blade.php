@@ -83,6 +83,7 @@
                                 <li><a href="{{ url('user') }}">Iscritti</a></li>
                                 <li><a href="{{ url('evento') }}">Eventi</a></li>
                                 <li><a href="{{ url('adozione') }}">Locations</a></li>
+                                <li><a href="{{ url('archivio') }}">Archivio Mail</a></li>
                             </ul>
                         </div>
                     </div>

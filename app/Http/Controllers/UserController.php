@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Auth;
 use App\User;
+use App\Archive;
 
 class UserController extends Controller
 {
@@ -20,11 +21,6 @@ class UserController extends Controller
         return view('user.list', ['users' => $users]);
     }
 
-    public function create()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
         $u = new User();
@@ -37,23 +33,26 @@ class UserController extends Controller
 		return redirect(url('user'));
     }
 
-    public function show($id)
+    public function sendMail(Request $request)
     {
-        //
-    }
+        $user = Auth::user();
+        if ($user->admin == false) {
+            return redirect(url('/'));
+        }
 
-    public function edit($id)
-    {
-        //
-    }
+        $subject = $request->input('subject');
+        $text = $request->input('body');
 
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        foreach(User::all() as $user) {
+            Mail::send('emails.wrapper', ['text' => $text], function($message) use ($user, $subject) {
+                $message->to($user->email);
+                $message->subject(env('APP_NAME') . ': ' . $subject);
+            });
+        }
 
-    public function destroy($id)
-    {
-        //
+        Archive::put('Tutti gli iscritti', $subject, $text);
+
+        Session::flash('message', 'Mail inviata agli iscritti');
+        return redirect(url('user'));
     }
 }

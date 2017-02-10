@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Log;
 use App\Event;
 
 class EventController extends Controller
@@ -87,10 +88,6 @@ class EventController extends Controller
         return redirect(url('evento'));
     }
 
-    public function destroy($id)
-    {
-    }
-
     public function getPhoto($id, $name)
     {
         return response()->download(storage_path() . '/app/photos/' . $id . '/' . $name);
@@ -115,5 +112,47 @@ class EventController extends Controller
 
         $path = storage_path() . '/app/photos/' . $id . '/' . $name;
         @unlink($path);
+    }
+
+    public function sendMail(Request $request)
+    {
+        $user = Auth::user();
+        if ($user->admin == false) {
+            return redirect(url('/'));
+        }
+
+        $id = $request->input('event_id');
+        $event = Event::findOrFail($id);
+
+        $subject = $request->input('subject');
+        $text = $request->input('body');
+        $notified = [];
+
+        foreach($event->slots as $slot) {
+            foreach($slot->bookings as $booking) {
+                foreach($booking->attendees as $attendee) {
+                    $email = $attendee->real_mail;
+                    if (array_key_exists($email, $notified))
+                        continue;
+
+                    $notified[$email] = true;
+
+                    try {
+                        Mail::send('emails.wrapper', ['text' => $text], function($message) use ($email, $subject) {
+                            $message->to($email);
+                            $message->subject(env('APP_NAME') . ': ' . $subject);
+                        });
+                    }
+                    catch(\Exception $e) {
+                        Log::error("Mail evento non inviata a $email: " . $e->getMessage());
+                    }
+                }
+            }
+        }
+
+        Archive::put('Tutti i partecipanti a evento ' . $event->name, $subject, $text);
+
+        Session::flash('message', 'Mail inviata ai partecipanti');
+        return redirect(url('evento/'.$slot->event->id.'/edit'));
     }
 }

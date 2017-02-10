@@ -152,6 +152,10 @@
 
                             {!! BootForm::open(['action' => 'SlotController@sendMail']) !!}
                                 <div class="modal-body">
+                                    <div class="alert alert-info">
+                                        Manda una mail a tutti i partecipanti a questo concerto.
+                                    </div>
+
                                     {!! csrf_field() !!}
                                     {!! BootForm::hidden('slot_id', $slot->id) !!}
                                     {!! BootForm::radios('mail-type', 'Tipo', [

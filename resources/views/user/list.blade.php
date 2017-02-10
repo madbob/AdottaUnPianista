@@ -6,6 +6,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<button class="btn btn-default" data-toggle="modal" data-target="#new-user">Crea Nuovo Utente</button>
+            <button class="btn btn-default" data-toggle="modal" data-target="#new-mail">Invia Mail Massiva</button>
 		</div>
 	</div>
 
@@ -24,6 +25,32 @@
 						{!! BootForm::text('phone', 'Telefono') !!}
 						{!! BootForm::email() !!}
 						{!! BootForm::password('password', 'Password') !!}
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+						<button type="submit" class="btn btn-primary">Salva</button>
+					</div>
+				{!! BootForm::close() !!}
+			</div>
+		</div>
+	</div>
+
+    <div class="modal fade" id="new-mail" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Invia Mail a tutti gli Iscritti</h4>
+				</div>
+
+				{!! BootForm::open(['action' => 'UserController@sendMail']) !!}
+					<div class="modal-body">
+                        <div class="alert alert-info">
+                            Manda una mail a tutti gli iscritti alla piattaforma.
+                        </div>
+
+                        {!! BootForm::text('subject', 'Oggetto') !!}
+                        {!! BootForm::textarea('body', 'Testo') !!}
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
