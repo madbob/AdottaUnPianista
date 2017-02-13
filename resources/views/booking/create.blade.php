@@ -37,6 +37,24 @@ $days = $event->days();
                 @endforeach
             </div>
         @endforeach
+    @elseif($event->status == 'archived')
+        <div class="col-md-12">
+            <div class="generic-button-large">
+                Evento archiviato.
+            </div>
+        </div>
+
+        @foreach($days as $index => $d)
+            <div class="col-md-{{ 12 / count($days) }} cells column-{{ $index }}">
+                <div class="day-name">
+                    {{ $d->name }}
+                </div>
+
+                @foreach($event->slots()->where(DB::raw('DATE(date)'), $d->date)->orderBy('date', 'asc')->get() as $slot)
+                    @include('booking.cell', ['slot' => $slot, 'user' => Auth::user()])
+                @endforeach
+            </div>
+        @endforeach
     @else
         <div class="alert alert-info">
             <p>Programma da definire</p>
