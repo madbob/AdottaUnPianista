@@ -56,7 +56,7 @@ $(document).ready(function() {
         if (index == len)
             index = 1;
         carousel.find('.slide:nth-child(' + index + ')').addClass('active');
-    }, 2000);
+    }, 4000);
 
     /*
         Interfaccia amministrazione
