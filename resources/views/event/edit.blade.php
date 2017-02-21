@@ -137,6 +137,10 @@
                                                     {!! BootForm::hidden('date', $d->date) !!}
                                                     {!! BootForm::text('hour', 'Orario') !!}
                                                     {!! BootForm::text('name', 'Titolo') !!}
+                                                    {!! BootForm::radios('bookable', 'Prenotabile', [
+                                                        'true' => 'Prenotabile online sul sito',
+                                                        'false' => 'Non prenotabile online'
+                                                    ], 'true') !!}
                                                     {!! BootForm::textarea('artist', 'Artista') !!}
                                                     {!! BootForm::textarea('contents', 'Programma') !!}
 

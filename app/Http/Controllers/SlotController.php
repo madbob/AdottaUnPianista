@@ -42,6 +42,7 @@ class SlotController extends Controller
         $slot->contents = trim($request->input('contents', ''));
         $slot->date = $request->input('date', '').' '.$request->input('hour', '');
         $slot->name = trim($request->input('name', ''));
+        $slot->bookable = ($request->input('bookable', 'true') == 'true');
         $slot->event_id = $event->id;
         $slot->location_id = $request->input('location', '');
         $slot->status = 'open';
@@ -69,6 +70,7 @@ class SlotController extends Controller
             $date = explode(' ', $slot->date)[0];
             $slot->date = $date.' '.$request->input('hour', '');
             $slot->name = trim($request->input('name', ''));
+            $slot->bookable = ($request->input('bookable', 'true') == 'true');
             $slot->artist = trim($request->input('artist', ''));
             $slot->contents = trim($request->input('contents', ''));
         }

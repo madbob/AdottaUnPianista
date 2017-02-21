@@ -23,6 +23,13 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
+                            <label for="name">Prenotabile</label><br/>
+                            <input type="radio" name="bookable" value="true" {{ $slot->bookable ? 'checked="checked"' : '' }}> Prenotabile online sul sito<br/>
+                            <input type="radio" name="bookable" value="false" {{ !$slot->bookable ? 'checked="checked"' : '' }}> Non prenotabile online
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
                             <label for="artist">Artisti</label>
                             <textarea name="artist" class="form-control">{{ $slot->artist }}</textarea>
                         </div>
