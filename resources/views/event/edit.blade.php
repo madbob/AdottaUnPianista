@@ -145,7 +145,7 @@
                                                         <div class="col-sm-10">
                                                             <select name="location" class="form-control" required>
                                                                 @foreach(App\Adoption::where('status', 'confirmed')->orderBy('surname', 'asc')->get() as $location)
-                                                                    <option value="{{ $location->id }}">{{ $location->name }} {{ $location->surname }}, {{ $location->address }}</option>
+                                                                    <option value="{{ $location->id }}">{{ $location->name }} {{ $location->surname }}, {{ $location->address }} ({{ $location->notes }})</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
