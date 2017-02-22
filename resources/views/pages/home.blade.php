@@ -18,15 +18,15 @@
                 <div>
                     <div class="intro-wrapper">
                         <div class="intro-carousel">
+                            <!--
                             <div class="slide" style="background-image: url('/images/pianista_sd.jpg')">
-                                <!--
                                 <a href="{{ url('adozione/create') }}">
                                     <div class="intro-info intro-info-bg-0">
                                         <p class="info-adoption">Abiti a San Donato?<br/>Hai un pianoforte in casa e vuoi ospitare un concerto? Scrivici e ti spieghiamo come funziona!</p>
                                     </div>
                                 </a>
-                                -->
                             </div>
+                            -->
 
                             <?php $index = 1 ?>
                             @foreach($events as $event)
