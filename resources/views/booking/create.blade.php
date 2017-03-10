@@ -40,7 +40,7 @@ $days = $event->days();
     @elseif($event->status == 'archived')
         <div class="col-md-12">
             <div class="generic-button-large">
-                Evento archiviato.
+                Evento passato.
             </div>
         </div>
 
