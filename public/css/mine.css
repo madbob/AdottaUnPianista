@@ -112,6 +112,26 @@ html, body, #app, #grid {
   top: 100%;
   left: 3%;
   width: 94%; }
+#home .gallery-block {
+  box-sizing: border-box;
+  float: left;
+  width: 100%;
+  background-color: #E1693A;
+  color: #FFF;
+  display: table-cell;
+  font-size: 30px;
+  line-height: 35px; }
+  #home .gallery-block .gallery-photo {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px; }
+  #home .gallery-block .gallery-inner-title {
+    text-align: center;
+    font-size: 30px;
+    margin: 40px 0;
+    font-family: 'Rubik', sans-serif; }
 
 .event-photo {
   position: relative; }

@@ -10,7 +10,8 @@
         "watson/bootstrap-form": "^1.0",
         "jenssegers/date": "^3.2",
         "aws/aws-sdk-php": "^3.20",
-        "elibyy/tcpdf-laravel": "5.3.*"
+        "elibyy/tcpdf-laravel": "5.3.*",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

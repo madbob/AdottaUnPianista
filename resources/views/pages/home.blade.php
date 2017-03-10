@@ -102,6 +102,39 @@
                             <a href="{{ url('adozione/create') }}"><img src="/images/filetto1_right.svg"><span>VUOI OSPITARE UN CONCERTO A CASA TUA?</span><img src="/images/filetto1_left.svg"></a>
                         </div>
 
+                        <?php
+
+                        $photos = [];
+
+                        foreach($events as $event) {
+                            $p = [];
+                            foreach($event->photos as $photo)
+                                $p[] = url('evento/' . $event->id . '/foto/' . $photo);
+
+                            if (!empty($p))
+                                $photos[$event->name] = $p;
+                        }
+
+                        ?>
+
+                        @if(!empty($photos))
+                            <br/>
+                            <div class="gallery-block">
+                                <p class="gallery-inner-title">
+                                    GALLERIA FOTOGRAFICA
+                                </p>
+
+                                @foreach($photos as $event_name => $p)
+                                    @foreach($p as $a)
+                                        <div class="col-md-3">
+                                            <div class="gallery-photo" style="background-image: url('{{ $a }}')">
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endforeach
+                            </div>
+                        @endif
+
                         <div class="logos">
                             <img src="/images/loghi.jpg">
                         </div>

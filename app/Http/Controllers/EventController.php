@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Log;
+use Image;
 use App\Event;
 
 class EventController extends Controller
@@ -100,7 +101,10 @@ class EventController extends Controller
             return redirect(url('/'));
         }
 
-        echo $request->file('file')->store('photos/' . $id);
+        $file = $request->file('file');
+        $path = 'photos/' . $id . '/' . str_random(10);
+        Image::make($file->getRealPath())->widen(800)->save(storage_path() . '/app/' . $path);
+        echo $path;
     }
 
     public function deletePhoto($id, $name)
