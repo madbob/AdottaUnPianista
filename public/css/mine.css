@@ -147,6 +147,7 @@ html, body, #app, #grid {
   width: 94%;
   height: 94%; }
   .intro-wrapper .intro-carousel {
+    position: relative;
     width: 100%;
     max-width: 100%;
     height: 100%; }
@@ -155,54 +156,55 @@ html, body, #app, #grid {
       .intro-wrapper .intro-carousel .slick-list .slick-track {
         height: 100%; }
     .intro-wrapper .intro-carousel .slide {
-      display: none;
-      background-size: cover; }
-      .intro-wrapper .intro-carousel .slide.active {
-        display: block;
-        position: relative;
-        max-width: 100%;
-        height: 100%; }
-        .intro-wrapper .intro-carousel .slide.active .intro-info {
-          padding-right: 20px;
-          padding-top: 70px;
-          position: absolute;
-          bottom: 40px;
-          right: 40px;
-          width: 403px;
-          height: 373px;
-          background-size: cover;
-          color: #000;
-          font-weight: bold;
-          font-size: 33px;
-          line-height: 25px;
-          text-align: right; }
-          .intro-wrapper .intro-carousel .slide.active .intro-info .info-month {
-            text-transform: lowercase;
-            font-size: 25px; }
-          .intro-wrapper .intro-carousel .slide.active .intro-info .info-area {
-            color: #FFF; }
-          .intro-wrapper .intro-carousel .slide.active .intro-info .info-name {
-            text-align: center;
-            margin-right: -60px;
-            margin-top: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-size: cover;
+      display: block;
+      position: relative;
+      max-width: 100%;
+      height: 100%; }
+      .intro-wrapper .intro-carousel .slide .intro-info {
+        padding-right: 20px;
+        padding-top: 70px;
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+        width: 403px;
+        height: 373px;
+        background-size: cover;
+        color: #000;
+        font-weight: bold;
+        font-size: 33px;
+        line-height: 25px;
+        text-align: right; }
+        .intro-wrapper .intro-carousel .slide .intro-info .info-month {
+          text-transform: lowercase;
+          font-size: 25px; }
+        .intro-wrapper .intro-carousel .slide .intro-info .info-area {
+          color: #FFF; }
+        .intro-wrapper .intro-carousel .slide .intro-info .info-name {
+          text-align: center;
+          margin-right: -60px;
+          margin-top: 20px;
+          display: block;
+          font-family: 'IM Fell Great Primer', serif;
+          font-style: italic; }
+          .intro-wrapper .intro-carousel .slide .intro-info .info-name:before {
             display: block;
-            font-family: 'IM Fell Great Primer', serif;
-            font-style: italic; }
-            .intro-wrapper .intro-carousel .slide.active .intro-info .info-name:before {
-              display: block;
-              margin: 10px 0px 10px 0px;
-              content: url("/images/filetto2_right.svg"); }
-            .intro-wrapper .intro-carousel .slide.active .intro-info .info-name:after {
-              display: block;
-              margin: 10px 0px 10px 0px;
-              content: url("/images/filetto2_left.svg"); }
-          .intro-wrapper .intro-carousel .slide.active .intro-info .info-adoption {
-            margin-top: 80px;
-            color: #FFF;
-            line-height: 28px;
-            width: 90%;
-            float: right; }
-        .intro-wrapper .intro-carousel .slide.active img {
+            margin: 10px 0px 10px 0px;
+            content: url("/images/filetto2_right.svg"); }
+          .intro-wrapper .intro-carousel .slide .intro-info .info-name:after {
+            display: block;
+            margin: 10px 0px 10px 0px;
+            content: url("/images/filetto2_left.svg"); }
+        .intro-wrapper .intro-carousel .slide .intro-info .info-adoption {
+          margin-top: 80px;
+          color: #FFF;
+          line-height: 28px;
+          width: 90%;
+          float: right; }
+        .intro-wrapper .intro-carousel .slide .intro-info img {
           width: 100%;
           max-width: 100%; }
       .intro-wrapper .intro-carousel .slide .intro-info-bg-0 {
@@ -250,6 +252,7 @@ html, body, #app, #grid {
     cursor: pointer;
     margin-bottom: 0; }
     .intro-text .hp-events .hp-event .booking-head .area {
+      font-family: 'Rubik', sans-serif;
       padding-right: 10px;
       text-align: right; }
     .intro-text .hp-events .hp-event .booking-head .name {

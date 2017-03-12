@@ -48,15 +48,22 @@ $(document).ready(function() {
     }
 
     $('.intro-carousel .slide:first').addClass('active');
+    $('.intro-carousel .slide:not(.active)').hide();
 
     setInterval(function() {
         var carousel = $('.intro-carousel');
         var len = carousel.find('.slide').length + 1;
-        var index = carousel.find('.slide.active').removeClass('active').index() + 2;
+        var current = carousel.find('.slide.active');
+        var index = current.index() + 2;
         if (index == len)
             index = 1;
-        carousel.find('.slide:nth-child(' + index + ')').addClass('active');
-    }, 4000);
+
+        current.fadeOut(500, function() {
+            $(this).removeClass('active');
+            carousel.find('.slide:nth-child(' + index + ')').addClass('active').fadeIn();
+        });
+
+    }, 5000);
 
     /*
         Interfaccia amministrazione
