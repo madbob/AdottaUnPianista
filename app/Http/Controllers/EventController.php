@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Auth;
 use Log;
 use Mail;
+use Session;
 use Image;
 use App\Event;
+use App\Archive;
 
 class EventController extends Controller
 {
