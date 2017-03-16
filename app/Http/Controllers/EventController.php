@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Log;
+use Mail;
 use Image;
 use App\Event;
 
