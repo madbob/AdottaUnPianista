@@ -47,6 +47,8 @@
 				</div>
 
 				{!! BootForm::open(['action' => 'EventController@sendMail']) !!}
+					<input type="hidden" name="event_id" value="{{ $event->id }}">
+
 					<div class="modal-body">
                         <div class="alert alert-info">
                             Manda una mail a tutti i partecipanti all'evento (tutti gli indirizzi mail registrati per tutti i concerti).
