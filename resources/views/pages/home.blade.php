@@ -79,7 +79,7 @@
                         <div class="generic-button-large">
                             <p>
                                 Abiti ad Aurora o Porta Palazzo? Hai un pianoforte in casa e vuoi ospitare un concerto?<br/>
-                                Scrivici e ti spieghiamo come funziona! <a href="">adottaunpianista@gmail.com</a>
+                                Scrivici e ti spieghiamo come funziona! <a href="mailto:adottaunpianista@gmail.com">adottaunpianista@gmail.com</a>
                             </p>
                         </div>
 
