@@ -29,7 +29,7 @@ $days = $event->days();
         @foreach($days as $index => $d)
             <div class="col-md-{{ 12 / count($days) }} cells column-{{ $index }}">
                 <div class="day-name">
-                    {{ $d->name }}
+                    {{ $d->name }} {{ ucwords(Date::parse($d->date)->format('d F')) }}
                 </div>
 
                 @foreach($event->slots()->where(DB::raw('DATE(date)'), $d->date)->orderBy('date', 'asc')->get() as $slot)
@@ -47,7 +47,7 @@ $days = $event->days();
         @foreach($days as $index => $d)
             <div class="col-md-{{ 12 / count($days) }} cells column-{{ $index }}">
                 <div class="day-name">
-                    {{ $d->name }}
+                    {{ $d->name }} {{ ucwords(Date::parse($d->date)->format('d F')) }}
                 </div>
 
                 @foreach($event->slots()->where(DB::raw('DATE(date)'), $d->date)->orderBy('date', 'asc')->get() as $slot)
