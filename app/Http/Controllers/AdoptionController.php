@@ -47,7 +47,7 @@ class AdoptionController extends Controller
         $adoption->save();
 
         Mail::send('emails.admin_notify_new_adoption', ['adoption' => $adoption], function($message) {
-            $message->to(env('MAIL_FROM'));
+            $message->to(env('MAIL_FROM_ADDRESS'));
             $message->subject(env('APP_NAME') . ': notifica nuova candidatura');
         });
 
