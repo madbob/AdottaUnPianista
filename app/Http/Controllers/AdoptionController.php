@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Mail;
 use App\Adoption;
 
 class AdoptionController extends Controller
@@ -44,6 +45,11 @@ class AdoptionController extends Controller
         $adoption->notes = $request->input('notes', '');
         $adoption->status = 'pending';
         $adoption->save();
+
+        Mail::send('emails.admin_notify_new_adoption', ['adoption' => $adoption], function($message) {
+            $message->to(env('MAIL_FROM'));
+            $message->subject(env('APP_NAME') . ': notifica nuova candidatura');
+        });
 
         return view('adoption.thanks');
     }
