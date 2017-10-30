@@ -43,11 +43,11 @@ else {
                         <button class="btn" type="button" data-toggle="collapse" data-target="#book-slot-{{ $slot->id }}" aria-expanded="false" aria-controls="prenota">Prenota</button>
                     @endif
                 @endif
-            @endif
 
-            <span class="still-available-wrapper">
-                <span class="still-available">{{ $slot->available }}</span> Posti Disponibili
-            </span>
+                <span class="still-available-wrapper">
+                    <span class="still-available">{{ $slot->available }}</span> Posti Disponibili
+                </span>
+            @endif
 
             <input type="hidden" name="max-bookable" value="{{ min($slot->available, 5) }}">
         </div>
