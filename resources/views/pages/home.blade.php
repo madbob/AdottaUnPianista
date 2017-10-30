@@ -66,13 +66,6 @@
                             </div>
                         @endif
 
-                        <div class="generic-button-large">
-                            <p>
-                                Abiti a Barriera di Milano? Hai un pianoforte in casa e vuoi ospitare un concerto?<br/>
-                                Scrivici e ti spieghiamo come funziona! <a href="mailto:adottaunpianista@gmail.com">adottaunpianista@gmail.com</a>
-                            </p>
-                        </div>
-
                         <div class="mm-block">
                             <p class="major-text">
                                 Adotta un pianista è un programma di concerti da realizzare negli appartamenti privati dei quartieri di San Salvario, San Donato, Barriera di Milano, Aurora Porta Palazzo, Mirafiori nord,  i cui proprietari si rendano disponibili ad accogliere musicisti e pubblico in casa propria.
