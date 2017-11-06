@@ -43,7 +43,9 @@ else {
                         <button class="btn" type="button" data-toggle="collapse" data-target="#book-slot-{{ $slot->id }}" aria-expanded="false" aria-controls="prenota">Prenota</button>
                     @endif
                 @endif
+            @endif
 
+            @if($slot->bookable)
                 <span class="still-available-wrapper">
                     <span class="still-available">{{ $slot->available }}</span> Posti Disponibili
                 </span>
