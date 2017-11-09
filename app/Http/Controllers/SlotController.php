@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Auth;
 use Mail;
 use Session;
 use PDF;
+
 use App\Event;
 use App\Slot;
+use App\Archive;
 
 class SlotController extends Controller
 {
