@@ -3,7 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+
 use Date;
+use DB;
 
 class Event extends Model
 {
@@ -63,5 +65,51 @@ class Event extends Model
         else {
             return sprintf('%s %s / %s %s', $start_day, $start_month, $end_day, $end_month);
         }
+    }
+
+    private static function globFiles($pattern, $ext)
+    {
+        $ret = [];
+        $path = public_path() . '/images/events/';
+        $files = glob($path . $pattern . '*');
+
+        foreach($files as $f) {
+            $filename = basename($f);
+            preg_match("/$pattern([0-9]*).$ext/", $filename, $matches);
+            $index = $matches[1];
+            $ret[$index] = sprintf('<img src="/images/events/%s" class="img-responsive">', $filename);
+        }
+
+        return $ret;
+    }
+
+    public static function getCovers()
+    {
+        return self::globFiles('cover-', 'jpg');
+    }
+
+    public static function getIcons()
+    {
+        return self::globFiles('mini-', 'png');
+    }
+
+    public static function availableYears($future = false)
+    {
+        $ret = [];
+
+        $min = Event::min('year');
+        $max = Event::max('year');
+        $start = $future ? $max + 1 : $max;
+
+        for($i = $start; $i >= $min; $i--) {
+            $ret[$i] = $i;
+        }
+
+        return $ret;
+    }
+
+    public static function currentYear()
+    {
+        return Event::whereIn('status', ['announced', 'published', 'archived'])->max('year');
     }
 }

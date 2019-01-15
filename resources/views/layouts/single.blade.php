@@ -24,7 +24,7 @@
             <div class="page" id="event-{{ str_slug($event->name) }}">
                 <div class="cover event-cell">
                     <div class="details">
-                        <img class="img-responsive" src="/images/events/mini-{{ $event->id }}.png">
+                        <img class="img-responsive" src="/images/events/mini-{{ $event->icon }}.png">
                         <p class="dates">{{ strtolower($event->printableDates()) }} | {{ $event->area }}</p>
                         <p class="title">{{ $event->name }}</p>
                     </div>

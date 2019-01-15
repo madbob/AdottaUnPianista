@@ -20,7 +20,7 @@
                         <div class="intro-carousel">
                             <?php $index = 1 ?>
                             @foreach($events as $event)
-                                <div class="slide" style="background-image: url('/images/events/cover-{{ $event->id }}.jpg')">
+                                <div class="slide" style="background-image: url('/images/events/cover-{{ $event->cover }}.jpg')">
                                     <div class="intro-info intro-info-bg-{{ $index = (($index + 1) % 3) }}">
                                         <?php
 
@@ -137,7 +137,7 @@
             <div class="page" id="event-{{ str_slug($event->name) }}">
                 <div class="cover event-cell">
                     <div class="details">
-                        <img class="img-responsive" src="/images/events/mini-{{ $event->id }}.png">
+                        <img class="img-responsive" src="/images/events/mini-{{ $event->icon }}.png">
                         <p class="dates">{{ strtolower($event->printableDates()) }} | {{ $event->area }}</p>
                         <p class="title">{{ $event->name }}</p>
                     </div>

@@ -15,8 +15,7 @@ class BookableSlot extends Migration
 
     public function down()
     {
-        Schema::table('slots', function(Blueprint $table)
-        {
+        Schema::table('slots', function(Blueprint $table) {
             $table->dropColumn(['bookable']);
         });
     }

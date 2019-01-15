@@ -37,10 +37,13 @@ class EventController extends Controller
         }
 
         $event = new Event();
+        $event->year = $request->input('year', date('Y'));
         $event->name = trim($request->input('name', ''));
         $event->area = trim($request->input('area', ''));
         $event->description = trim($request->input('description', ''));
         $event->picture = '';
+        $event->cover = 1;
+        $event->icon = 1;
         $event->start = $this->decodeDate($request->input('start', ''));
         $event->end = $this->decodeDate($request->input('end', ''));
         $event->status = 'closed';
@@ -80,10 +83,13 @@ class EventController extends Controller
             return redirect(url('evento'));
         }
 
+        $event->year = $request->input('year', date('Y'));
         $event->name = trim($request->input('name', ''));
         $event->area = trim($request->input('area', ''));
         $event->description = trim($request->input('description', ''));
         $event->picture = '';
+        $event->cover = $request->input('cover', 1);
+        $event->icon = $request->input('icon', 1);
         $event->start = $this->decodeDate($request->input('start', ''));
         $event->end = $this->decodeDate($request->input('end', ''));
         $event->status = $request->input('status', 'closed');

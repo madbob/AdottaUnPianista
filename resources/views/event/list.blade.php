@@ -37,19 +37,25 @@
 
     <div class="row">
         <div class="col-md-12">
-            @if($events->isEmpty())
-                <div class="alert alert-info">
-                    <p>Non ci sono eventi</p>
-                </div>
-            @else
-                <div class="list-group">
-                    @foreach($events as $event)
-                        <a href="{{ url('evento/' . $event->id . '/edit') }}" class="list-group-item {{ $event->status == 'published' ? 'active' : '' }}">
-                            {{ $event->name }}<span class="badge">{{ $event->status == 'published' ? 'Aperto' : ($event->status == 'archived' ? 'Archiviato' : 'Chiuso') }}</span>
-                        </a>
-                    @endforeach
-                </div>
-            @endif
+            @foreach(App\Event::availableYears() as $year)
+                <?php $subevents = $events->where('year', $year) ?>
+
+                <h3>{{ $year }}</h3>
+
+                @if($subevents->isEmpty())
+                    <div class="alert alert-info">
+                        <p>Non ci sono eventi</p>
+                    </div>
+                @else
+                    <div class="list-group">
+                        @foreach($subevents as $event)
+                            <a href="{{ url('evento/' . $event->id . '/edit') }}" class="list-group-item {{ $event->status == 'published' ? 'active' : '' }}">
+                                {{ $event->name }}<span class="badge">{{ $event->status == 'published' ? 'Aperto' : ($event->status == 'archived' ? 'Archiviato' : 'Chiuso') }}</span>
+                            </a>
+                        @endforeach
+                    </div>
+                @endif
+            @endforeach
         </div>
     </div>
 @endsection
