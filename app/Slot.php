@@ -48,4 +48,10 @@ class Slot extends Model
     {
         return strftime('%H:%M', $this->timestamp);
     }
+
+    public function isElapsed()
+    {
+        // return ($this->timestamp < (time() + (60 * 60 * 24)));
+        return $this->timestamp < time();
+    }
 }

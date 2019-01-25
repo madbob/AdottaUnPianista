@@ -2,7 +2,7 @@
 
 if (Auth::check()) {
     $booking = $user->bookings()->where('slot_id', $slot->id)->first();
-    $modificable = $slot->bookable && ($slot->timestamp > (time() + (60 * 60 * 24)));
+    $modificable = $slot->bookable && ($slot->isElapsed() == false);
 }
 else {
     $booking = null;
