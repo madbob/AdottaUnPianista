@@ -68,7 +68,7 @@
 
                         <div class="mm-block">
                             <p class="major-text">
-                                Adotta un pianista è un programma di concerti da realizzare negli appartamenti privati dei quartieri di San Salvario, San Donato, Barriera di Milano, Aurora Porta Palazzo, Mirafiori nord,  i cui proprietari si rendano disponibili ad accogliere musicisti e pubblico in casa propria.
+                                Adotta un pianista è un programma di concerti che vengono realizzati negli appartamenti privati del quartiere di San Salvario, i cui proprietari si rendono disponibili ad accogliere musicisti e pubblico in casa propria. Ingresso gratuito, prenotazione obbligatoria online.
                             </p>
 
                             <p class="minor-text">
