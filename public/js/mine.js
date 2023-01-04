@@ -50,20 +50,22 @@ $(document).ready(function() {
     $('.intro-carousel .slide:first').addClass('active');
     $('.intro-carousel .slide:not(.active)').hide();
 
-    setInterval(function() {
-        var carousel = $('.intro-carousel');
-        var len = carousel.find('.slide').length + 1;
-        var current = carousel.find('.slide.active');
-        var index = current.index() + 2;
-        if (index == len)
-            index = 1;
+	if ($('.intro-carousel .slide').length > 1) {
+	    setInterval(function() {
+	        var carousel = $('.intro-carousel');
+	        var len = carousel.find('.slide').length + 1;
+	        var current = carousel.find('.slide.active');
+	        var index = current.index() + 2;
+	        if (index == len)
+	            index = 1;
 
-        current.fadeOut(500, function() {
-            $(this).removeClass('active');
-            carousel.find('.slide:nth-child(' + index + ')').addClass('active').fadeIn();
-        });
+	        current.fadeOut(500, function() {
+	            $(this).removeClass('active');
+	            carousel.find('.slide:nth-child(' + index + ')').addClass('active').fadeIn();
+	        });
 
-    }, 5000);
+	    }, 5000);
+	}
 
     /*
         Interfaccia amministrazione

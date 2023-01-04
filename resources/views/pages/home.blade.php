@@ -126,7 +126,7 @@
                         @endif
 
                         <div class="logos">
-                            <img src="/images/loghi.jpg">
+                            <img src="/images/loghi.jpg?v=2">
                         </div>
                     </div>
                 </div>

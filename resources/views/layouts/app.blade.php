@@ -46,7 +46,7 @@
         <script type="application/javascript" src="/js/app.js"></script>
         <script type="application/javascript" src="/js/bootstrap-datepicker.min.js"></script>
         <script type="application/javascript" src="/js/bootstrap-datepicker.it.min.js"></script>
-        <script type="application/javascript" src="/js/mine.js"></script>
+        <script type="application/javascript" src="/js/mine.js?v=2"></script>
 
         <script type="text/javascript">
             var _paq = _paq || [];
